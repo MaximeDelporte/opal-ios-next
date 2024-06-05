@@ -1,0 +1,53 @@
+{
+    "referred_friends": 4,
+    "rewards": [
+        {
+            "image_url": "loyal-gem",
+            "required_friends": 1,
+            "title": "Loyal Gem",
+            "description": "Unlock this special milestone",
+            "exclude_premiums": false,
+            "status": 2
+        },
+        {
+            "image_url": "soulful-gem",
+            "required_friends": 3,
+            "title": "Soulful Gem",
+            "description": "Unlock this special milestone",
+            "exclude_premiums": false,
+            "status": 1
+        },
+        {
+            "image_url": "opal-reward",
+            "required_friends": 5,
+            "title": "1 Year of Opal Pro",
+            "description": "Unlock one whole year of Opal Pro for Free.",
+            "exclude_premiums": true,
+            "status": 0
+        },
+        {
+            "image_url": "popular-gem",
+            "required_friends": 10,
+            "title": "Popular Gem",
+            "description": "Unlock this special milestone",
+            "exclude_premiums": false,
+            "status": 0
+        },
+        {
+            "image_url": "opal-gift",
+            "required_friends": 20,
+            "title": "Special Gift",
+            "description": "Contact us to receive a special gift from the Opal Team",
+            "exclude_premiums": false,
+            "status": 0
+        },
+        {
+            "image_url": "gift",
+            "required_friends": 100,
+            "title": "Mystery Gift",
+            "description": "Contact us to receive a life changing gift from Opal",
+            "exclude_premiums": false,
+            "status": 0
+        }
+    ]
+}

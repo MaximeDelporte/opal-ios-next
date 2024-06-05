@@ -1,0 +1,719 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCF937B92C0F59AC00E1AF04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */; };
+		FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */; };
+		FCF937C22C0F59AD00E1AF04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF937C12C0F59AD00E1AF04 /* Assets.xcassets */; };
+		FCF937C52C0F59AD00E1AF04 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FCF937C42C0F59AD00E1AF04 /* Base */; };
+		FCF937D02C0F59AD00E1AF04 /* SponsorshipViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937CF2C0F59AD00E1AF04 /* SponsorshipViewModel_Tests.swift */; };
+		FCF937DA2C0F59AD00E1AF04 /* opal_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937D92C0F59AD00E1AF04 /* opal_iosUITests.swift */; };
+		FCF937DC2C0F59AD00E1AF04 /* opal_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937DB2C0F59AD00E1AF04 /* opal_iosUITestsLaunchTests.swift */; };
+		FCF937EF2C0F5DF600E1AF04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FCF937EE2C0F5DF600E1AF04 /* SnapKit */; };
+		FCF937F32C0F5EB600E1AF04 /* sponsorship.json in Resources */ = {isa = PBXBuildFile; fileRef = FCF937F22C0F5EB600E1AF04 /* sponsorship.json */; };
+		FCF937F52C0F60BD00E1AF04 /* SponsorshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937F42C0F60BC00E1AF04 /* SponsorshipViewController.swift */; };
+		FCF937FA2C0F638300E1AF04 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937F92C0F638300E1AF04 /* Reward.swift */; };
+		FCF938032C0F68D100E1AF04 /* SponsorshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF938022C0F68D100E1AF04 /* SponsorshipViewModel.swift */; };
+		FCF938062C0F6A6F00E1AF04 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF938052C0F6A6F00E1AF04 /* Bundle+Extensions.swift */; };
+		FCF938072C0F6A9000E1AF04 /* sponsorship.json in Resources */ = {isa = PBXBuildFile; fileRef = FCF937F22C0F5EB600E1AF04 /* sponsorship.json */; };
+		FCF938092C0F6BBC00E1AF04 /* Sponsorship.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF938082C0F6BBC00E1AF04 /* Sponsorship.swift */; };
+		FCF9380C2C0F7E5F00E1AF04 /* RewardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */; };
+		FCF9380E2C0F7FC300E1AF04 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9380D2C0F7FC300E1AF04 /* UIColor+Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCF937CC2C0F59AD00E1AF04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCF937AD2C0F59AC00E1AF04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCF937B42C0F59AC00E1AF04;
+			remoteInfo = "opal-ios";
+		};
+		FCF937D62C0F59AD00E1AF04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCF937AD2C0F59AC00E1AF04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCF937B42C0F59AC00E1AF04;
+			remoteInfo = "opal-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCF937B52C0F59AC00E1AF04 /* opal-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "opal-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FCF937C12C0F59AD00E1AF04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCF937C42C0F59AD00E1AF04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FCF937C62C0F59AD00E1AF04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCF937CB2C0F59AD00E1AF04 /* opal-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "opal-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCF937CF2C0F59AD00E1AF04 /* SponsorshipViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorshipViewModel_Tests.swift; sourceTree = "<group>"; };
+		FCF937D52C0F59AD00E1AF04 /* opal-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "opal-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCF937D92C0F59AD00E1AF04 /* opal_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opal_iosUITests.swift; sourceTree = "<group>"; };
+		FCF937DB2C0F59AD00E1AF04 /* opal_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opal_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FCF937F22C0F5EB600E1AF04 /* sponsorship.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sponsorship.json; sourceTree = "<group>"; };
+		FCF937F42C0F60BC00E1AF04 /* SponsorshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorshipViewController.swift; sourceTree = "<group>"; };
+		FCF937F92C0F638300E1AF04 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		FCF938022C0F68D100E1AF04 /* SponsorshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorshipViewModel.swift; sourceTree = "<group>"; };
+		FCF938052C0F6A6F00E1AF04 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		FCF938082C0F6BBC00E1AF04 /* Sponsorship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsorship.swift; sourceTree = "<group>"; };
+		FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCard.swift; sourceTree = "<group>"; };
+		FCF9380D2C0F7FC300E1AF04 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCF937B22C0F59AC00E1AF04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCF937EF2C0F5DF600E1AF04 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF937C82C0F59AD00E1AF04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF937D22C0F59AD00E1AF04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCF937AC2C0F59AC00E1AF04 = {
+			isa = PBXGroup;
+			children = (
+				FCF937B72C0F59AC00E1AF04 /* opal-ios */,
+				FCF937CE2C0F59AD00E1AF04 /* opal-iosTests */,
+				FCF937D82C0F59AD00E1AF04 /* opal-iosUITests */,
+				FCF937B62C0F59AC00E1AF04 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCF937B62C0F59AC00E1AF04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCF937B52C0F59AC00E1AF04 /* opal-ios.app */,
+				FCF937CB2C0F59AD00E1AF04 /* opal-iosTests.xctest */,
+				FCF937D52C0F59AD00E1AF04 /* opal-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCF937B72C0F59AC00E1AF04 /* opal-ios */ = {
+			isa = PBXGroup;
+			children = (
+				FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */,
+				FCF938042C0F6A6600E1AF04 /* Extensions */,
+				FCF937F82C0F637900E1AF04 /* Models */,
+				FCF937F62C0F60BF00E1AF04 /* Features */,
+				FCF937E82C0F5A0800E1AF04 /* Resources */,
+			);
+			path = "opal-ios";
+			sourceTree = "<group>";
+		};
+		FCF937CE2C0F59AD00E1AF04 /* opal-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCF937F22C0F5EB600E1AF04 /* sponsorship.json */,
+				FCF937CF2C0F59AD00E1AF04 /* SponsorshipViewModel_Tests.swift */,
+			);
+			path = "opal-iosTests";
+			sourceTree = "<group>";
+		};
+		FCF937D82C0F59AD00E1AF04 /* opal-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FCF937D92C0F59AD00E1AF04 /* opal_iosUITests.swift */,
+				FCF937DB2C0F59AD00E1AF04 /* opal_iosUITestsLaunchTests.swift */,
+			);
+			path = "opal-iosUITests";
+			sourceTree = "<group>";
+		};
+		FCF937E82C0F5A0800E1AF04 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCF937C12C0F59AD00E1AF04 /* Assets.xcassets */,
+				FCF937C32C0F59AD00E1AF04 /* LaunchScreen.storyboard */,
+				FCF937C62C0F59AD00E1AF04 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FCF937F62C0F60BF00E1AF04 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */,
+				FCF937F72C0F60C600E1AF04 /* Sponsorship */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		FCF937F72C0F60C600E1AF04 /* Sponsorship */ = {
+			isa = PBXGroup;
+			children = (
+				FCF937F42C0F60BC00E1AF04 /* SponsorshipViewController.swift */,
+				FCF938022C0F68D100E1AF04 /* SponsorshipViewModel.swift */,
+				FCF9380A2C0F7E5500E1AF04 /* Views */,
+			);
+			path = Sponsorship;
+			sourceTree = "<group>";
+		};
+		FCF937F82C0F637900E1AF04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCF938082C0F6BBC00E1AF04 /* Sponsorship.swift */,
+				FCF937F92C0F638300E1AF04 /* Reward.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FCF938042C0F6A6600E1AF04 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FCF938052C0F6A6F00E1AF04 /* Bundle+Extensions.swift */,
+				FCF9380D2C0F7FC300E1AF04 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FCF9380A2C0F7E5500E1AF04 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCF937B42C0F59AC00E1AF04 /* opal-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCF937DF2C0F59AD00E1AF04 /* Build configuration list for PBXNativeTarget "opal-ios" */;
+			buildPhases = (
+				FCF937B12C0F59AC00E1AF04 /* Sources */,
+				FCF937B22C0F59AC00E1AF04 /* Frameworks */,
+				FCF937B32C0F59AC00E1AF04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "opal-ios";
+			packageProductDependencies = (
+				FCF937EE2C0F5DF600E1AF04 /* SnapKit */,
+			);
+			productName = "opal-ios";
+			productReference = FCF937B52C0F59AC00E1AF04 /* opal-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCF937CA2C0F59AD00E1AF04 /* opal-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCF937E22C0F59AD00E1AF04 /* Build configuration list for PBXNativeTarget "opal-iosTests" */;
+			buildPhases = (
+				FCF937C72C0F59AD00E1AF04 /* Sources */,
+				FCF937C82C0F59AD00E1AF04 /* Frameworks */,
+				FCF937C92C0F59AD00E1AF04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCF937CD2C0F59AD00E1AF04 /* PBXTargetDependency */,
+			);
+			name = "opal-iosTests";
+			productName = "opal-iosTests";
+			productReference = FCF937CB2C0F59AD00E1AF04 /* opal-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FCF937D42C0F59AD00E1AF04 /* opal-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCF937E52C0F59AD00E1AF04 /* Build configuration list for PBXNativeTarget "opal-iosUITests" */;
+			buildPhases = (
+				FCF937D12C0F59AD00E1AF04 /* Sources */,
+				FCF937D22C0F59AD00E1AF04 /* Frameworks */,
+				FCF937D32C0F59AD00E1AF04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCF937D72C0F59AD00E1AF04 /* PBXTargetDependency */,
+			);
+			name = "opal-iosUITests";
+			productName = "opal-iosUITests";
+			productReference = FCF937D52C0F59AD00E1AF04 /* opal-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCF937AD2C0F59AC00E1AF04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					FCF937B42C0F59AC00E1AF04 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					FCF937CA2C0F59AD00E1AF04 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = FCF937B42C0F59AC00E1AF04;
+					};
+					FCF937D42C0F59AD00E1AF04 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = FCF937B42C0F59AC00E1AF04;
+					};
+				};
+			};
+			buildConfigurationList = FCF937B02C0F59AC00E1AF04 /* Build configuration list for PBXProject "opal-ios" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCF937AC2C0F59AC00E1AF04;
+			packageReferences = (
+				FCF937ED2C0F5DF600E1AF04 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = FCF937B62C0F59AC00E1AF04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCF937B42C0F59AC00E1AF04 /* opal-ios */,
+				FCF937CA2C0F59AD00E1AF04 /* opal-iosTests */,
+				FCF937D42C0F59AD00E1AF04 /* opal-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCF937B32C0F59AC00E1AF04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCF937C22C0F59AD00E1AF04 /* Assets.xcassets in Resources */,
+				FCF937C52C0F59AD00E1AF04 /* Base in Resources */,
+				FCF938072C0F6A9000E1AF04 /* sponsorship.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF937C92C0F59AD00E1AF04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCF937F32C0F5EB600E1AF04 /* sponsorship.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF937D32C0F59AD00E1AF04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCF937B12C0F59AC00E1AF04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCF937FA2C0F638300E1AF04 /* Reward.swift in Sources */,
+				FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */,
+				FCF9380C2C0F7E5F00E1AF04 /* RewardCard.swift in Sources */,
+				FCF937B92C0F59AC00E1AF04 /* AppDelegate.swift in Sources */,
+				FCF938062C0F6A6F00E1AF04 /* Bundle+Extensions.swift in Sources */,
+				FCF938032C0F68D100E1AF04 /* SponsorshipViewModel.swift in Sources */,
+				FCF938092C0F6BBC00E1AF04 /* Sponsorship.swift in Sources */,
+				FCF9380E2C0F7FC300E1AF04 /* UIColor+Extensions.swift in Sources */,
+				FCF937F52C0F60BD00E1AF04 /* SponsorshipViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF937C72C0F59AD00E1AF04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCF937D02C0F59AD00E1AF04 /* SponsorshipViewModel_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCF937D12C0F59AD00E1AF04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCF937DC2C0F59AD00E1AF04 /* opal_iosUITestsLaunchTests.swift in Sources */,
+				FCF937DA2C0F59AD00E1AF04 /* opal_iosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCF937CD2C0F59AD00E1AF04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCF937B42C0F59AC00E1AF04 /* opal-ios */;
+			targetProxy = FCF937CC2C0F59AD00E1AF04 /* PBXContainerItemProxy */;
+		};
+		FCF937D72C0F59AD00E1AF04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCF937B42C0F59AC00E1AF04 /* opal-ios */;
+			targetProxy = FCF937D62C0F59AD00E1AF04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCF937C32C0F59AD00E1AF04 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCF937C42C0F59AD00E1AF04 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCF937DD2C0F59AD00E1AF04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FCF937DE2C0F59AD00E1AF04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCF937E02C0F59AD00E1AF04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RP68K7NXAW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "opal-ios/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Opal;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximedelporte.opal-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCF937E12C0F59AD00E1AF04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RP68K7NXAW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "opal-ios/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Opal;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximedelporte.opal-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FCF937E32C0F59AD00E1AF04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RP68K7NXAW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximedelporte.opal-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/opal-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/opal-ios";
+			};
+			name = Debug;
+		};
+		FCF937E42C0F59AD00E1AF04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RP68K7NXAW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximedelporte.opal-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/opal-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/opal-ios";
+			};
+			name = Release;
+		};
+		FCF937E62C0F59AD00E1AF04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RP68K7NXAW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximedelporte.opal-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "opal-ios";
+			};
+			name = Debug;
+		};
+		FCF937E72C0F59AD00E1AF04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RP68K7NXAW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximedelporte.opal-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "opal-ios";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCF937B02C0F59AC00E1AF04 /* Build configuration list for PBXProject "opal-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCF937DD2C0F59AD00E1AF04 /* Debug */,
+				FCF937DE2C0F59AD00E1AF04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCF937DF2C0F59AD00E1AF04 /* Build configuration list for PBXNativeTarget "opal-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCF937E02C0F59AD00E1AF04 /* Debug */,
+				FCF937E12C0F59AD00E1AF04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCF937E22C0F59AD00E1AF04 /* Build configuration list for PBXNativeTarget "opal-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCF937E32C0F59AD00E1AF04 /* Debug */,
+				FCF937E42C0F59AD00E1AF04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCF937E52C0F59AD00E1AF04 /* Build configuration list for PBXNativeTarget "opal-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCF937E62C0F59AD00E1AF04 /* Debug */,
+				FCF937E72C0F59AD00E1AF04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCF937ED2C0F5DF600E1AF04 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCF937EE2C0F5DF600E1AF04 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCF937ED2C0F5DF600E1AF04 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FCF937AD2C0F59AC00E1AF04 /* Project object */;
+}
