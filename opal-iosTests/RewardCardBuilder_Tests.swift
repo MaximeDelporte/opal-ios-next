@@ -21,7 +21,7 @@ class RewardCardBuilder_Tests: XCTestCase {
         
         for (requireFriends, expectedText) in requireFriendsAndExpectedTexts {
             let reward = Reward.getReward(requiredFriends: requireFriends)
-            let builder = RewardCardBuilder(reward: reward)
+            let builder = RewardCardLayout(reward: reward)
             
             XCTAssertEqual(builder.requirementText, expectedText)
         }
@@ -29,25 +29,25 @@ class RewardCardBuilder_Tests: XCTestCase {
     
     func test_verifyTheBuildersProperties() {
         let reward = Reward.getReward(requiredFriends: 5)
-        let builder = RewardCardBuilder(reward: reward)
+        let layout = RewardCardLayout(reward: reward)
         
-        XCTAssertEqual(builder.titleText, "Loyal Gem")
-        XCTAssertEqual(builder.descriptionText, "Unlock this special milestone")
-        XCTAssertEqual(builder.imageUrl, "loyal-gem")
-        XCTAssertEqual(builder.claimButtonText, "Claim")
+        XCTAssertEqual(layout.titleText, "Loyal Gem")
+        XCTAssertEqual(layout.descriptionText, "Unlock this special milestone")
+        XCTAssertEqual(layout.imageUrl, "loyal-gem")
+        XCTAssertEqual(layout.claimButtonText, "Claim")
         
-        XCTAssertEqual(builder.requirementFont, .captionSemibold)
-        XCTAssertEqual(builder.titleFont, .bodyMedium)
-        XCTAssertEqual(builder.descriptionFont, .footnoteSemibold)
-        XCTAssertEqual(builder.claimButtonFont, .footnoteRegular)
+        XCTAssertEqual(layout.requirementFont, .captionSemibold)
+        XCTAssertEqual(layout.titleFont, .bodyMedium)
+        XCTAssertEqual(layout.descriptionFont, .footnoteSemibold)
+        XCTAssertEqual(layout.claimButtonFont, .footnoteRegular)
         
-        XCTAssertEqual(builder.cardBackgroundColor, UIColor(hex: "#141414")!)
-        XCTAssertEqual(builder.cardBorderColor, UIColor.white.withAlphaComponent(0.1).cgColor)
-        XCTAssertEqual(builder.descriptionColor, .white.withAlphaComponent(0.4))
-        XCTAssertEqual(builder.progressViewBackgroundColor, .white.withAlphaComponent(0.1))
-        XCTAssertEqual(builder.rewardViewBackgroundColor, .white.withAlphaComponent(0.1))
+        XCTAssertEqual(layout.cardBackgroundColor, UIColor(hex: "#141414")!)
+        XCTAssertEqual(layout.cardBorderColor, UIColor.white.withAlphaComponent(0.1).cgColor)
+        XCTAssertEqual(layout.descriptionColor, .white.withAlphaComponent(0.4))
+        XCTAssertEqual(layout.progressViewBackgroundColor, .white.withAlphaComponent(0.1))
+        XCTAssertEqual(layout.rewardViewBackgroundColor, .white.withAlphaComponent(0.1))
         
-        XCTAssertEqual(builder.cardCornerRadius, 18)
-        XCTAssertTrue(builder.ongoingMode)
+        XCTAssertEqual(layout.cardCornerRadius, 18)
+        XCTAssertTrue(layout.ongoingMode)
     }
 }

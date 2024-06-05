@@ -28,7 +28,7 @@ class SponsorshipViewController: UIViewController {
     private var cancellable = Set<AnyCancellable>()
     private let viewModel = SponsorshipViewModel()
     
-    private let builder = SponsorshipViewBuilder()
+    private let layout = SponsorshipViewLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,27 +48,27 @@ class SponsorshipViewController: UIViewController {
 extension SponsorshipViewController {
     
     private func setUpViews() {
-        view.backgroundColor = builder.backgroundColor
+        view.backgroundColor = layout.backgroundColor
         view.addSubview(scrollView)
         
-        topCardView.backgroundColor = builder.topCardBackgroundColor
-        topCardView.layer.cornerRadius = builder.cardCornerRadius
+        topCardView.backgroundColor = layout.topCardBackgroundColor
+        topCardView.layer.cornerRadius = layout.cardCornerRadius
         
         topCardImageView.image = UIImage(named: "opal-title")
         
-        topCardLabel.text = builder.topCardLabelText
-        topCardLabel.font = builder.topCardLabelFont
-        topCardLabel.textColor = builder.topCardLabelColor
+        topCardLabel.text = layout.topCardLabelText
+        topCardLabel.font = layout.topCardLabelFont
+        topCardLabel.textColor = layout.topCardLabelColor
         
-        descriptionLabel.text = builder.descriptionLabelText
-        descriptionLabel.font = builder.descriptionLabelFont
-        descriptionLabel.textColor = builder.descriptionLabelColor
+        descriptionLabel.text = layout.descriptionLabelText
+        descriptionLabel.font = layout.descriptionLabelFont
+        descriptionLabel.textColor = layout.descriptionLabelColor
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
         
-        addFriendsButton.setTitle(builder.addFriendsText, for: .normal)
-        addFriendsButton.setTitleColor(builder.addFriendsTextColor, for: .normal)
-        addFriendsButton.backgroundColor = builder.addFriendsBackgroundColor
+        addFriendsButton.setTitle(layout.addFriendsText, for: .normal)
+        addFriendsButton.setTitleColor(layout.addFriendsTextColor, for: .normal)
+        addFriendsButton.backgroundColor = layout.addFriendsBackgroundColor
         
         topCardView.addSubview(topCardImageView)
         topCardView.addSubview(topCardLabel)
@@ -84,24 +84,24 @@ extension SponsorshipViewController {
         }
         
         topCardView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(builder.topToCardView)
-            $0.left.equalTo(view).offset(builder.horizontalPadding)
-            $0.right.equalTo(view).offset(-builder.horizontalPadding)
+            $0.top.equalToSuperview().offset(layout.topToCardView)
+            $0.left.equalTo(view).offset(layout.horizontalPadding)
+            $0.right.equalTo(view).offset(-layout.horizontalPadding)
         }
         
         topCardImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(builder.cardViewToCardImageView)
+            $0.top.equalToSuperview().offset(layout.cardViewToCardImageView)
             $0.centerX.equalToSuperview()
         }
         
         topCardLabel.snp.makeConstraints {
-            $0.top.equalTo(topCardImageView.snp.bottom).offset(builder.cardImageViewToCardLabel)
+            $0.top.equalTo(topCardImageView.snp.bottom).offset(layout.cardImageViewToCardLabel)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-builder.cardLabelToBottomCardView)
+            $0.bottom.equalToSuperview().offset(-layout.cardLabelToBottomCardView)
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(topCardView.snp.bottom).offset(builder.bottomCardViewToDescriptionLabel)
+            $0.top.equalTo(topCardView.snp.bottom).offset(layout.bottomCardViewToDescriptionLabel)
             $0.left.right.equalTo(topCardView)
         }
         
@@ -133,15 +133,15 @@ extension SponsorshipViewController {
 extension SponsorshipViewController {
     
     @objc private func displayShareSheet() {
-        let shareContent = builder.shareContentText
+        let shareContent = layout.shareContentText
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         self.present(activityViewController, animated: true)
     }
     
     private func addCards(from rewards: [Reward]) {
         for reward in rewards {
-            let builder = RewardCardBuilder(reward: reward)
-            let rewardCard = RewardCard(builder: builder)
+            let layout = RewardCardLayout(reward: reward)
+            let rewardCard = RewardCard(layout: layout)
             rewardCards.append(rewardCard)
         }
         
@@ -156,7 +156,7 @@ extension SponsorshipViewController {
             
             if isFirstCard {
                 rewardCard.snp.makeConstraints {
-                    $0.top.equalTo(addFriendsButton.snp.bottom).offset(builder.addFriendsToFirstRewardCard)
+                    $0.top.equalTo(addFriendsButton.snp.bottom).offset(layout.addFriendsToFirstRewardCard)
                     $0.left.right.equalTo(topCardView)
                 }
             } 
@@ -166,13 +166,13 @@ extension SponsorshipViewController {
                 
                 if isLastCard {
                     rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(builder.spaceBetweenCard)
+                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenCard)
                         $0.left.right.equalTo(topCardView)
-                        $0.bottom.equalToSuperview().offset(-builder.lastRewardCardToBottom)
+                        $0.bottom.equalToSuperview().offset(-layout.lastRewardCardToBottom)
                     }
                 } else {
                     rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(builder.spaceBetweenCard)
+                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenCard)
                         $0.left.right.equalTo(topCardView)
                     }
                 }

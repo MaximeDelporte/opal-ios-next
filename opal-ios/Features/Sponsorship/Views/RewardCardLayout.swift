@@ -1,5 +1,5 @@
 //
-//  RewardCardBuilder.swift
+//  RewardCardLayout.swift
 //  opal-ios
 //
 //  Created by afx on 05/06/2024.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RewardCardBuilder {
+class RewardCardLayout {
 
     let requirementText: String
     let titleText: String

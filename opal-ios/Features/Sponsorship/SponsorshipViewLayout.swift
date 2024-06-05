@@ -1,5 +1,5 @@
 //
-//  SponsorshipViewBuilder.swift
+//  SponsorshipViewLayout.swift
 //  opal-ios
 //
 //  Created by afx on 06/06/2024.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SponsorshipViewBuilder {
+class SponsorshipViewLayout {
 
     let topCardLabelText: String
     let descriptionLabelText: String
