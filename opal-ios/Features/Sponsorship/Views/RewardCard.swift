@@ -13,9 +13,9 @@ class RewardCard: UIView {
     
     private let rewardView = UIView()
     private let rewardImageView = UIImageView()
-    private let requirementLabel = UILabel()
-    private let titleLabel = UILabel()
-    private let descriptionLabel = UILabel()
+    private let requirementLabel = UILabel(font: .captionSemibold)
+    private let titleLabel = UILabel(font: .bodyMedium)
+    private let descriptionLabel = UILabel(font: .footnoteSemibold)
     private let claimButton = UIButton()
     private let progressView = UIView()
     
@@ -48,15 +48,11 @@ extension RewardCard {
         layer.borderWidth = 1
     
         requirementLabel.text = "\(reward.requiredFriends) friend".uppercased()
-        requirementLabel.font = .systemFont(ofSize: 11, weight: .medium)
         requirementLabel.textColor = .purple
         
         titleLabel.text = reward.title
-        titleLabel.font = .systemFont(ofSize: 17, weight: .bold)
-        titleLabel.textColor = .white
         
         descriptionLabel.text = reward.description
-        descriptionLabel.font = .systemFont(ofSize: 13, weight: .semibold)
         descriptionLabel.textColor = .white.withAlphaComponent(0.4)
         
         if ongoingMode {
@@ -66,6 +62,7 @@ extension RewardCard {
             addSubview(progressView)
         } else {
             claimButton.setTitle(" Claim ", for: .normal)
+            claimButton.titleLabel?.font = .footnoteRegular
             claimButton.setTitleColor(.black, for: .normal)
             claimButton.backgroundColor = .white
             claimButton.layer.cornerRadius = 16
@@ -98,7 +95,7 @@ extension RewardCard {
         }
         
         requirementLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
+            $0.top.equalTo(rewardView)
             $0.left.equalTo(rewardView.snp.right).offset(32)
             $0.right.equalToSuperview().offset(-16)
         }
@@ -109,7 +106,7 @@ extension RewardCard {
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(0)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
             $0.left.right.equalTo(requirementLabel)
         }
         
@@ -118,19 +115,28 @@ extension RewardCard {
                 $0.left.right.equalTo(requirementLabel)
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(8)
                 $0.height.equalTo(6)
-                $0.bottom.equalToSuperview().offset(-16)
+                $0.bottom.equalToSuperview().offset(-12)
             }
         } else {
             claimButton.snp.makeConstraints {
                 $0.left.equalTo(requirementLabel)
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
-                $0.bottom.equalToSuperview().offset(-16)
+                $0.bottom.equalToSuperview().offset(-12)
             }
         }
     }
 }
 
-//#Preview {
-//    RewardCard(reward: Reward(imageUrl: "loyal-gem", requiredFriends: 1, title: "Loyal Gem", description: "Unlock this special milestone", excludePremiums: false, status: .claim))
-//}
-//
+#Preview {
+    let reward = Reward(
+        imageUrl: "loyal-gem",
+        requiredFriends: 1,
+        title: "Loyal Gem",
+        description: "Unlock this special milestone",
+        excludePremiums: false,
+        status: .claim
+    )
+    
+    return RewardCard(reward: reward)
+}
+

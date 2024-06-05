@@ -176,3 +176,7 @@ extension SponsorshipViewController {
         }
     }
 }
+
+#Preview {
+    SponsorshipViewController()
+}

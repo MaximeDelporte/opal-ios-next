@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC760D902C11015400649DCF /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */; };
+		FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D912C11052600649DCF /* UIFont+Extensions.swift */; };
 		FCF937B92C0F59AC00E1AF04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */; };
 		FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */; };
 		FCF937C22C0F59AD00E1AF04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF937C12C0F59AD00E1AF04 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		FC760D912C11052600649DCF /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		FCF937B52C0F59AC00E1AF04 /* opal-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "opal-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 			children = (
 				FCF938052C0F6A6F00E1AF04 /* Bundle+Extensions.swift */,
 				FCF9380D2C0F7FC300E1AF04 /* UIColor+Extensions.swift */,
+				FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */,
+				FC760D912C11052600649DCF /* UIFont+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,11 +341,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF937FA2C0F638300E1AF04 /* Reward.swift in Sources */,
+				FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */,
 				FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */,
 				FCF9380C2C0F7E5F00E1AF04 /* RewardCard.swift in Sources */,
 				FCF937B92C0F59AC00E1AF04 /* AppDelegate.swift in Sources */,
 				FCF938062C0F6A6F00E1AF04 /* Bundle+Extensions.swift in Sources */,
 				FCF938032C0F68D100E1AF04 /* SponsorshipViewModel.swift in Sources */,
+				FC760D902C11015400649DCF /* UILabel+Extensions.swift in Sources */,
 				FCF938092C0F6BBC00E1AF04 /* Sponsorship.swift in Sources */,
 				FCF9380E2C0F7FC300E1AF04 /* UIColor+Extensions.swift in Sources */,
 				FCF937F52C0F60BD00E1AF04 /* SponsorshipViewController.swift in Sources */,
