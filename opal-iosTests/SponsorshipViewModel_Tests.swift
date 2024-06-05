@@ -12,16 +12,11 @@ import XCTest
 final class SponsorshipViewModel_Tests: XCTestCase {
     
     func test_sponsorship_properties() {
-        let reward = Reward(
-            imageUrl: "loyal-gem",
-            requiredFriends: 1,
-            title: "Loyal Gem",
-            description: "Unlock this special milestone",
-            excludePremiums: false,
-            status: .ongoing
+        let reward = Reward.getReward(requiredFriends: 1)
+        let sponsorship = Sponsorship(
+            referredFriends: 0,
+            rewards: [reward]
         )
-        
-        let sponsorship = Sponsorship(referredFriends: 0, rewards: [reward])
         
         XCTAssertEqual(sponsorship.referredFriends, 0)
         
@@ -30,7 +25,7 @@ final class SponsorshipViewModel_Tests: XCTestCase {
         XCTAssertEqual(firstReward.requiredFriends, 1)
         XCTAssertEqual(firstReward.title, "Loyal Gem")
         XCTAssertEqual(firstReward.description, "Unlock this special milestone")
-        XCTAssertEqual(firstReward.excludePremiums, false)
+        XCTAssertFalse(firstReward.excludePremiums)
     }
     
     func test_whenSponsorshipRequestIsSuccessful_thenWeShouldHaveProperties() {
@@ -47,6 +42,7 @@ final class SponsorshipViewModel_Tests: XCTestCase {
 }
 
 private class StateSpy {
+    
     private(set) var states = [SponsorshipViewModel.State]()
     private var cancellable: AnyCancellable?
     

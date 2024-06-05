@@ -28,6 +28,13 @@ class RewardCard: UIView {
         setUpConstraints()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        claimButton.layer.cornerRadius = claimButton.frame.height / 2
+        print("rewardView.frame.maxY: \(rewardView.frame.maxY)")
+        print("claimButton.frame.maxY: \(claimButton.frame.maxY)")
+    }
+    
     private var ongoingMode: Bool {
         reward.status == Reward.Status.ongoing
     }
@@ -61,7 +68,7 @@ extension RewardCard {
             
             addSubview(progressView)
         } else {
-            claimButton.setTitle(" Claim ", for: .normal)
+            claimButton.setTitle("Claim", for: .normal)
             claimButton.titleLabel?.font = .footnoteRegular
             claimButton.setTitleColor(.black, for: .normal)
             claimButton.backgroundColor = .white
@@ -125,6 +132,30 @@ extension RewardCard {
             }
         }
     }
+    
+//    func updateLayout() {
+//        let labelsHeight = label1.intrinsicContentSize.height + label2.intrinsicContentSize.height + label3.intrinsicContentSize.height
+//        let shouldCenterImageVertically = labelsHeight < 100
+//        
+//        // Adjust vertical alignment based on the total height of labels
+//        if shouldCenterImageVertically {
+//            // Center Image Vertically
+//            NSLayoutConstraint.activate([
+//                imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+//                labelsStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+//            ])
+//        } else {
+//            // Center Labels Vertically
+//            NSLayoutConstraint.activate([
+//                labelsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+//                imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+//            ])
+//        }
+//        
+//        // Update layout
+//        setNeedsLayout()
+//        layoutIfNeeded()
+//    }
 }
 
 #Preview {
@@ -134,7 +165,7 @@ extension RewardCard {
         title: "Loyal Gem",
         description: "Unlock this special milestone",
         excludePremiums: false,
-        status: .claim
+        status: .ongoing
     )
     
     return RewardCard(reward: reward)

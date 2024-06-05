@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		FC760D902C11015400649DCF /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */; };
 		FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D912C11052600649DCF /* UIFont+Extensions.swift */; };
+		FC760D942C110B6200649DCF /* RewardCardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D932C110B6200649DCF /* RewardCardBuilder.swift */; };
+		FC760D962C110C3800649DCF /* RewardCardBuilder_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D952C110C3800649DCF /* RewardCardBuilder_Tests.swift */; };
+		FC760D992C110D7A00649DCF /* Reward+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D982C110D7A00649DCF /* Reward+Extensions.swift */; };
 		FCF937B92C0F59AC00E1AF04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */; };
 		FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */; };
 		FCF937C22C0F59AD00E1AF04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF937C12C0F59AD00E1AF04 /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 /* Begin PBXFileReference section */
 		FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		FC760D912C11052600649DCF /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		FC760D932C110B6200649DCF /* RewardCardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCardBuilder.swift; sourceTree = "<group>"; };
+		FC760D952C110C3800649DCF /* RewardCardBuilder_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCardBuilder_Tests.swift; sourceTree = "<group>"; };
+		FC760D982C110D7A00649DCF /* Reward+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reward+Extensions.swift"; sourceTree = "<group>"; };
 		FCF937B52C0F59AC00E1AF04 /* opal-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "opal-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC760D972C110D5000649DCF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FC760D982C110D7A00649DCF /* Reward+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FCF937AC2C0F59AC00E1AF04 = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +144,10 @@
 		FCF937CE2C0F59AD00E1AF04 /* opal-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				FC760D972C110D5000649DCF /* Helpers */,
 				FCF937F22C0F5EB600E1AF04 /* sponsorship.json */,
 				FCF937CF2C0F59AD00E1AF04 /* SponsorshipViewModel_Tests.swift */,
+				FC760D952C110C3800649DCF /* RewardCardBuilder_Tests.swift */,
 			);
 			path = "opal-iosTests";
 			sourceTree = "<group>";
@@ -198,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */,
+				FC760D932C110B6200649DCF /* RewardCardBuilder.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +361,7 @@
 				FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */,
 				FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */,
 				FCF9380C2C0F7E5F00E1AF04 /* RewardCard.swift in Sources */,
+				FC760D942C110B6200649DCF /* RewardCardBuilder.swift in Sources */,
 				FCF937B92C0F59AC00E1AF04 /* AppDelegate.swift in Sources */,
 				FCF938062C0F6A6F00E1AF04 /* Bundle+Extensions.swift in Sources */,
 				FCF938032C0F68D100E1AF04 /* SponsorshipViewModel.swift in Sources */,
@@ -358,6 +376,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC760D962C110C3800649DCF /* RewardCardBuilder_Tests.swift in Sources */,
+				FC760D992C110D7A00649DCF /* Reward+Extensions.swift in Sources */,
 				FCF937D02C0F59AD00E1AF04 /* SponsorshipViewModel_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
