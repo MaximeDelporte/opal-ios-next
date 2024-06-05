@@ -59,7 +59,7 @@ class RewardCardLayout {
         descriptionFont = .footnoteSemibold
         claimButtonFont = .footnoteRegular
         
-        cardBackgroundColor = UIColor(hex: "#141414")!
+        cardBackgroundColor = .darkBackgroundColor
         cardBorderColor = UIColor.white.withAlphaComponent(0.1).cgColor
         titleColor = .white
         descriptionColor = .white.withAlphaComponent(0.4)
