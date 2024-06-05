@@ -31,6 +31,9 @@ class SponsorshipViewBuilder {
     let cardImageViewToCardLabel: CGFloat
     let cardLabelToBottomCardView: CGFloat
     let bottomCardViewToDescriptionLabel: CGFloat
+    let addFriendsToFirstRewardCard: CGFloat
+    let spaceBetweenCard: CGFloat
+    let lastRewardCardToBottom: CGFloat
     
     let cardCornerRadius: CGFloat
     
@@ -56,6 +59,9 @@ class SponsorshipViewBuilder {
         cardImageViewToCardLabel = 8
         cardLabelToBottomCardView = 64
         bottomCardViewToDescriptionLabel = 32
+        addFriendsToFirstRewardCard = 32
+        spaceBetweenCard = 16
+        lastRewardCardToBottom = 32
         
         cardCornerRadius = 16
     }

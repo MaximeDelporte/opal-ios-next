@@ -156,7 +156,7 @@ extension SponsorshipViewController {
             
             if isFirstCard {
                 rewardCard.snp.makeConstraints {
-                    $0.top.equalTo(addFriendsButton.snp.bottom).offset(32)
+                    $0.top.equalTo(addFriendsButton.snp.bottom).offset(builder.addFriendsToFirstRewardCard)
                     $0.left.right.equalTo(topCardView)
                 }
             } 
@@ -166,13 +166,13 @@ extension SponsorshipViewController {
                 
                 if isLastCard {
                     rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(16)
+                        $0.top.equalTo(previousCard.snp.bottom).offset(builder.spaceBetweenCard)
                         $0.left.right.equalTo(topCardView)
-                        $0.bottom.equalToSuperview().offset(-32)
+                        $0.bottom.equalToSuperview().offset(-builder.lastRewardCardToBottom)
                     }
                 } else {
                     rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(16)
+                        $0.top.equalTo(previousCard.snp.bottom).offset(builder.spaceBetweenCard)
                         $0.left.right.equalTo(topCardView)
                     }
                 }
