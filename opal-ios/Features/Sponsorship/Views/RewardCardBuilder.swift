@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class RewardCardBuilder {
-    
+
     let requirementText: String
     let titleText: String
     let descriptionText: String
@@ -27,28 +27,48 @@ class RewardCardBuilder {
     let progressViewBackgroundColor: UIColor
     let rewardViewBackgroundColor: UIColor
     
+    let rewardViewSize: CGFloat
+    let horizontalPadding: CGFloat
+    let spaceBetweenImageAndContent: CGFloat
+    let spaceBetweenRequirementAndTitle: CGFloat
+    let spaceBetweenTitleAndDescription: CGFloat
+    let progressViewHeight: CGFloat
+    let spaceBetweenDescriptionAndProgressView: CGFloat
+    let spaceBetweenDescriptionAndClaimButton: CGFloat
+    let spaceBetweenLastComponentAndBottom: CGFloat
+    
     let cardCornerRadius: CGFloat
     let ongoingMode: Bool
     
     init(reward: Reward) {
-        self.requirementText = reward.requiredFriends > 1 ? "\(reward.requiredFriends) FRIENDS" : "\(reward.requiredFriends) FRIEND"
-        self.titleText = reward.title
-        self.descriptionText = reward.description
-        self.imageUrl = reward.imageUrl
-        self.claimButtonText = "Claim"
+        requirementText = reward.requiredFriends > 1 ? "\(reward.requiredFriends) FRIENDS" : "\(reward.requiredFriends) FRIEND"
+        titleText = reward.title
+        descriptionText = reward.description
+        imageUrl = reward.imageUrl
+        claimButtonText = "Claim"
         
-        self.requirementFont = .captionSemibold
-        self.titleFont = .bodyMedium
-        self.descriptionFont = .footnoteSemibold
-        self.claimButtonFont = .footnoteRegular
+        requirementFont = .captionSemibold
+        titleFont = .bodyMedium
+        descriptionFont = .footnoteSemibold
+        claimButtonFont = .footnoteRegular
         
-        self.cardBackgroundColor = UIColor(hex: "#141414")!
-        self.cardBorderColor = UIColor.white.withAlphaComponent(0.1).cgColor
-        self.descriptionColor = .white.withAlphaComponent(0.4)
-        self.progressViewBackgroundColor = .white.withAlphaComponent(0.1)
-        self.rewardViewBackgroundColor = .white.withAlphaComponent(0.1)
+        cardBackgroundColor = UIColor(hex: "#141414")!
+        cardBorderColor = UIColor.white.withAlphaComponent(0.1).cgColor
+        descriptionColor = .white.withAlphaComponent(0.4)
+        progressViewBackgroundColor = .white.withAlphaComponent(0.1)
+        rewardViewBackgroundColor = .white.withAlphaComponent(0.1)
         
-        self.cardCornerRadius = 18
-        self.ongoingMode = reward.status == Reward.Status.ongoing
+        rewardViewSize = 100
+        horizontalPadding = 16
+        spaceBetweenImageAndContent = 32
+        spaceBetweenRequirementAndTitle = 4
+        spaceBetweenTitleAndDescription = 4
+        progressViewHeight = 6
+        spaceBetweenDescriptionAndProgressView = 8
+        spaceBetweenDescriptionAndClaimButton = 12
+        spaceBetweenLastComponentAndBottom = 12
+        
+        cardCornerRadius = 18
+        ongoingMode = reward.status == Reward.Status.ongoing
     }
 }

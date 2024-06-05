@@ -87,44 +87,43 @@ extension RewardCard {
     
     private func setUpConstraints() {
         rewardView.snp.makeConstraints {
-            $0.width.height.equalTo(100)
-            $0.left.equalToSuperview().offset(16)
+            $0.left.equalToSuperview().offset(builder.horizontalPadding)
+            $0.size.equalTo(builder.rewardViewSize)
             $0.centerY.equalToSuperview()
         }
         
         rewardImageView.snp.makeConstraints {
-            $0.top.left.equalToSuperview().offset(8)
-            $0.right.bottom.equalToSuperview().offset(-8)
+            $0.edges.equalToSuperview()
         }
         
         requirementLabel.snp.makeConstraints {
             $0.top.equalTo(rewardView)
-            $0.left.equalTo(rewardView.snp.right).offset(32)
-            $0.right.equalToSuperview().offset(-16)
+            $0.left.equalTo(rewardView.snp.right).offset(builder.spaceBetweenImageAndContent)
+            $0.right.equalToSuperview().offset(-builder.horizontalPadding)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(requirementLabel.snp.bottom).offset(4)
+            $0.top.equalTo(requirementLabel.snp.bottom).offset(builder.spaceBetweenRequirementAndTitle)
             $0.left.right.equalTo(requirementLabel)
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(builder.spaceBetweenTitleAndDescription)
             $0.left.right.equalTo(requirementLabel)
         }
         
         if builder.ongoingMode {
             progressView.snp.makeConstraints {
                 $0.left.right.equalTo(requirementLabel)
-                $0.top.equalTo(descriptionLabel.snp.bottom).offset(8)
-                $0.height.equalTo(6)
-                $0.bottom.equalToSuperview().offset(-12)
+                $0.top.equalTo(descriptionLabel.snp.bottom).offset(builder.spaceBetweenDescriptionAndProgressView)
+                $0.height.equalTo(builder.progressViewHeight)
+                $0.bottom.equalToSuperview().offset(-builder.spaceBetweenLastComponentAndBottom)
             }
         } else {
             claimButton.snp.makeConstraints {
                 $0.left.equalTo(requirementLabel)
-                $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
-                $0.bottom.equalToSuperview().offset(-12)
+                $0.top.equalTo(descriptionLabel.snp.bottom).offset(builder.spaceBetweenDescriptionAndClaimButton)
+                $0.bottom.equalToSuperview().offset(-builder.spaceBetweenLastComponentAndBottom)
             }
         }
     }
