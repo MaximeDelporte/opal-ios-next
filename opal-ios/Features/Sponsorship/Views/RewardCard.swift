@@ -137,7 +137,7 @@ extension RewardCard {
         rewardView.snp.removeConstraints()
         contentView.snp.removeConstraints()
         
-        if builder.imageViewIsBiggerThanContent {
+        if builder.isImageViewBiggerThanContent {
             rewardView.snp.makeConstraints {
                 $0.top.equalToSuperview().offset(builder.spaceBetweenTopAndContent)
                 $0.left.equalToSuperview().offset(builder.horizontalPadding)

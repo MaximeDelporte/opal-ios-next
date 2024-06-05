@@ -43,36 +43,6 @@ class RewardCardBuilder {
     let cardCornerRadius: CGFloat
     let ongoingMode: Bool
     
-    var imageViewIsBiggerThanContent: Bool {
-        let horizontalPaddings = horizontalPadding * 4
-        let availableWidth = UIScreen.main.bounds.width - horizontalPaddings - rewardViewSize - spaceBetweenImageAndContent
-        
-        let requirementLabel = UILabel(font: requirementFont).numberOfLines(0)
-        requirementLabel.text = requirementText
-        let titleLabel = UILabel(font: titleFont).numberOfLines(0)
-        titleLabel.text = titleText
-        let descriptionLabel = UILabel(font: descriptionFont).numberOfLines(0)
-        descriptionLabel.text = descriptionText
-        
-        var height = 0.0
-        
-        height += requirementLabel.heightForWidth(availableWidth)
-        height += spaceBetweenRequirementAndTitle
-        height += titleLabel.heightForWidth(availableWidth)
-        height += spaceBetweenTitleAndDescription
-        height += descriptionLabel.heightForWidth(availableWidth)
-        
-        if ongoingMode {
-            height += spaceBetweenDescriptionAndProgressView
-            height += progressViewHeight
-        } else {
-            height += spaceBetweenDescriptionAndClaimButton
-            height += buttonHeight
-        }
-        
-        return rewardViewSize >= height
-    }
-    
     private let reward: Reward
     
     init(reward: Reward) {
@@ -110,5 +80,35 @@ class RewardCardBuilder {
         
         cardCornerRadius = 18
         ongoingMode = reward.status == Reward.Status.ongoing
+    }
+    
+    var isImageViewBiggerThanContent: Bool {
+        let horizontalPaddings = horizontalPadding * 4
+        let availableWidth = UIScreen.main.bounds.width - horizontalPaddings - rewardViewSize - spaceBetweenImageAndContent
+        
+        let requirementLabel = UILabel(font: requirementFont).numberOfLines(0)
+        requirementLabel.text = requirementText
+        let titleLabel = UILabel(font: titleFont).numberOfLines(0)
+        titleLabel.text = titleText
+        let descriptionLabel = UILabel(font: descriptionFont).numberOfLines(0)
+        descriptionLabel.text = descriptionText
+        
+        var height = 0.0
+        
+        height += requirementLabel.heightForWidth(availableWidth)
+        height += spaceBetweenRequirementAndTitle
+        height += titleLabel.heightForWidth(availableWidth)
+        height += spaceBetweenTitleAndDescription
+        height += descriptionLabel.heightForWidth(availableWidth)
+        
+        if ongoingMode {
+            height += spaceBetweenDescriptionAndProgressView
+            height += progressViewHeight
+        } else {
+            height += spaceBetweenDescriptionAndClaimButton
+            height += buttonHeight
+        }
+        
+        return rewardViewSize >= height
     }
 }
