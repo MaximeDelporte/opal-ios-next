@@ -19,10 +19,10 @@ class RewardCard: UIView {
     private let claimButton = UIButton()
     private let progressView = UIView()
     
-    private let reward: Reward
+    private let builder: RewardCardBuilder
     
-    init(reward: Reward) {
-        self.reward = reward
+    init(builder: RewardCardBuilder) {
+        self.builder = builder
         super.init(frame: .zero)
         setUpViews()
         setUpConstraints()
@@ -31,10 +31,6 @@ class RewardCard: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         claimButton.layer.cornerRadius = claimButton.frame.height / 2
-    }
-    
-    private var ongoingMode: Bool {
-        reward.status == Reward.Status.ongoing
     }
     
     required init?(coder: NSCoder) {
@@ -52,15 +48,15 @@ extension RewardCard {
         layer.borderColor = UIColor.white.withAlphaComponent(0.1).cgColor
         layer.borderWidth = 1
     
-        requirementLabel.text = "\(reward.requiredFriends) friend".uppercased()
+        requirementLabel.text = builder.requirementText
         requirementLabel.textColor = .purple
         
-        titleLabel.text = reward.title
+        titleLabel.text = builder.titleText
         
-        descriptionLabel.text = reward.description
+        descriptionLabel.text = builder.descriptionText
         descriptionLabel.textColor = .white.withAlphaComponent(0.4)
         
-        if ongoingMode {
+        if builder.ongoingMode {
             progressView.backgroundColor = .white.withAlphaComponent(0.1)
             progressView.layer.cornerRadius = progressView.frame.height / 2
             
@@ -77,7 +73,7 @@ extension RewardCard {
         rewardView.backgroundColor = .white.withAlphaComponent(0.1)
         rewardView.layer.cornerRadius = 18
         rewardView.addSubview(rewardImageView)
-        rewardImageView.image = UIImage(named: reward.imageUrl)
+        rewardImageView.image = UIImage(named: builder.imageUrl)
         rewardImageView.contentMode = .scaleAspectFit
         
         addSubview(rewardView)
@@ -114,7 +110,7 @@ extension RewardCard {
             $0.left.right.equalTo(requirementLabel)
         }
         
-        if ongoingMode {
+        if builder.ongoingMode {
             progressView.snp.makeConstraints {
                 $0.left.right.equalTo(requirementLabel)
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(8)
@@ -141,6 +137,7 @@ extension RewardCard {
         status: .ongoing
     )
     
-    return RewardCard(reward: reward)
+    let builder = RewardCardBuilder(reward: reward)
+    return RewardCard(builder: builder)
 }
 

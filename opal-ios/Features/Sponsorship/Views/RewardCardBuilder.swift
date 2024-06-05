@@ -9,9 +9,20 @@ import Foundation
 
 class RewardCardBuilder {
     
-    let requirementLabelText: String
+    let requirementText: String
+    let titleText: String
+    let descriptionText: String
+    let imageUrl: String
+    
+    let ongoingMode: Bool
     
     init(reward: Reward) {
-        self.requirementLabelText = reward.requiredFriends > 1 ? "\(reward.requiredFriends) FRIENDS" : "\(reward.requiredFriends) FRIEND"
+        self.requirementText = reward.requiredFriends > 1 ? "\(reward.requiredFriends) FRIENDS" : "\(reward.requiredFriends) FRIEND"
+        self.titleText = reward.title
+        self.descriptionText = reward.description
+        self.imageUrl = reward.imageUrl
+        
+        
+        self.ongoingMode = reward.status == Reward.Status.ongoing
     }
 }

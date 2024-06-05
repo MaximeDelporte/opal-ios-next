@@ -137,7 +137,8 @@ extension SponsorshipViewController {
     
     private func addCards(from rewards: [Reward]) {
         for reward in rewards {
-            let rewardCard = RewardCard(reward: reward)
+            let builder = RewardCardBuilder(reward: reward)
+            let rewardCard = RewardCard(builder: builder)
             rewardCards.append(rewardCard)
         }
         

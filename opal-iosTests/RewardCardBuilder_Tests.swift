@@ -12,18 +12,28 @@ import XCTest
 
 class RewardCardBuilder_Tests: XCTestCase {
     
-    func test_requirement_label_text() {
+    func test_requirementTextShouldChange_dependingOfRequireFriendsValue() {
         let requireFriendsAndExpectedTexts = [
             (1, "1 FRIEND"),
             (2, "2 FRIENDS"),
             (10, "10 FRIENDS")
         ]
         
-        for (requireFriend, expectedText) in requireFriendsAndExpectedTexts {
-            let reward = Reward.getReward(requiredFriends: requireFriend)
+        for (requireFriends, expectedText) in requireFriendsAndExpectedTexts {
+            let reward = Reward.getReward(requiredFriends: requireFriends)
             let builder = RewardCardBuilder(reward: reward)
             
-            XCTAssertEqual(builder.requirementLabelText, expectedText)
+            XCTAssertEqual(builder.requirementText, expectedText)
         }
+    }
+    
+    func test_verifyTheBuildersProperties() {
+        let reward = Reward.getReward(requiredFriends: 5)
+        let builder = RewardCardBuilder(reward: reward)
+        
+        XCTAssertEqual(builder.titleText, "Loyal Gem")
+        XCTAssertEqual(builder.descriptionText, "Unlock this special milestone")
+        XCTAssertEqual(builder.imageUrl, "loyal-gem")
+        XCTAssertTrue(builder.ongoingMode)
     }
 }
