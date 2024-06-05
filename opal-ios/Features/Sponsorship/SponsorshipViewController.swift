@@ -47,7 +47,7 @@ class SponsorshipViewController: UIViewController {
 extension SponsorshipViewController {
     
     private func setUpViews() {
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hex: "#141414")!
         view.addSubview(scrollView)
         
         guestPassView.backgroundColor = .purple
@@ -174,6 +174,8 @@ extension SponsorshipViewController {
                     }
                 }
             }
+            
+            rewardCard.updateLayout()
         }
     }
 }

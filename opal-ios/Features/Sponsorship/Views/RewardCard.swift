@@ -13,6 +13,7 @@ class RewardCard: UIView {
     
     private let rewardView = UIView()
     private let rewardImageView = UIImageView()
+    private let contentView = UIView()
     private let requirementLabel = UILabel()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
@@ -51,27 +52,7 @@ extension RewardCard {
         requirementLabel.text = builder.requirementText
         requirementLabel.font = builder.requirementFont
         requirementLabel.textColor = .purple
-        
-        titleLabel.text = builder.titleText
-        titleLabel.font = builder.titleFont
-        
-        descriptionLabel.text = builder.descriptionText
-        descriptionLabel.font = builder.descriptionFont
-        descriptionLabel.textColor = builder.descriptionColor
-        
-        if builder.ongoingMode {
-            progressView.backgroundColor = builder.progressViewBackgroundColor
-            progressView.layer.cornerRadius = progressView.frame.height / 2
-            
-            addSubview(progressView)
-        } else {
-            claimButton.setTitle(builder.claimButtonText, for: .normal)
-            claimButton.titleLabel?.font = builder.claimButtonFont
-            claimButton.setTitleColor(.black, for: .normal)
-            claimButton.backgroundColor = .white
-            
-            addSubview(claimButton)
-        }
+        requirementLabel.numberOfLines =  0
         
         rewardView.backgroundColor = builder.rewardViewBackgroundColor
         rewardView.layer.cornerRadius = builder.cardCornerRadius
@@ -79,27 +60,45 @@ extension RewardCard {
         rewardImageView.image = UIImage(named: builder.imageUrl)
         rewardImageView.contentMode = .scaleAspectFit
         
+        titleLabel.text = builder.titleText
+        titleLabel.font = builder.titleFont
+        titleLabel.textColor = builder.titleColor
+        titleLabel.numberOfLines =  0
+        
+        descriptionLabel.text = builder.descriptionText
+        descriptionLabel.font = builder.descriptionFont
+        descriptionLabel.textColor = builder.descriptionColor
+        descriptionLabel.numberOfLines =  0
+        
+        if builder.ongoingMode {
+            progressView.backgroundColor = builder.progressViewBackgroundColor
+            progressView.layer.cornerRadius = progressView.frame.height / 2
+            
+            contentView.addSubview(progressView)
+        } else {
+            claimButton.setTitle(builder.claimButtonText, for: .normal)
+            claimButton.titleLabel?.font = builder.claimButtonFont
+            claimButton.setTitleColor(.black, for: .normal)
+            claimButton.backgroundColor = .white
+            
+            contentView.addSubview(claimButton)
+        }
+        
         addSubview(rewardView)
-        addSubview(requirementLabel)
-        addSubview(titleLabel)
-        addSubview(descriptionLabel)
+        addSubview(contentView)
+        contentView.addSubview(requirementLabel)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(descriptionLabel)
     }
     
     private func setUpConstraints() {
-        rewardView.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(builder.horizontalPadding)
-            $0.size.equalTo(builder.rewardViewSize)
-            $0.centerY.equalToSuperview()
-        }
-        
         rewardImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
         requirementLabel.snp.makeConstraints {
-            $0.top.equalTo(rewardView)
-            $0.left.equalTo(rewardView.snp.right).offset(builder.spaceBetweenImageAndContent)
-            $0.right.equalToSuperview().offset(-builder.horizontalPadding)
+            $0.top.equalToSuperview()
+            $0.left.right.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints {
@@ -117,15 +116,58 @@ extension RewardCard {
                 $0.left.right.equalTo(requirementLabel)
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(builder.spaceBetweenDescriptionAndProgressView)
                 $0.height.equalTo(builder.progressViewHeight)
-                $0.bottom.equalToSuperview().offset(-builder.spaceBetweenLastComponentAndBottom)
+                $0.bottom.equalToSuperview()
             }
         } else {
             claimButton.snp.makeConstraints {
-                $0.left.equalTo(requirementLabel)
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(builder.spaceBetweenDescriptionAndClaimButton)
-                $0.bottom.equalToSuperview().offset(-builder.spaceBetweenLastComponentAndBottom)
+                $0.left.equalTo(requirementLabel)
+                $0.height.equalTo(builder.buttonHeight)
+                $0.bottom.equalToSuperview()
             }
         }
+    }
+}
+
+// MARK: - Convenience Methods
+
+extension RewardCard {
+    
+    func updateLayout() {
+        rewardView.snp.removeConstraints()
+        contentView.snp.removeConstraints()
+        
+        if builder.imageViewIsBiggerThanContent {
+            rewardView.snp.makeConstraints {
+                $0.top.equalToSuperview().offset(builder.spaceBetweenTopAndContent)
+                $0.left.equalToSuperview().offset(builder.horizontalPadding)
+                $0.size.equalTo(builder.rewardViewSize)
+                $0.bottom.equalToSuperview().offset(-builder.spaceBetweenContentAndBottom)
+            }
+            
+            contentView.snp.makeConstraints {
+                $0.left.equalTo(rewardView.snp.right).offset(builder.spaceBetweenImageAndContent)
+                $0.right.equalToSuperview().offset(-builder.horizontalPadding)
+                $0.centerY.equalTo(rewardView)
+            }
+            
+        } else {
+            rewardView.snp.makeConstraints {
+                $0.left.equalToSuperview().offset(builder.horizontalPadding)
+                $0.size.equalTo(builder.rewardViewSize)
+                $0.centerY.equalTo(contentView)
+            }
+            
+            contentView.snp.makeConstraints {
+                $0.top.equalToSuperview().offset(builder.spaceBetweenTopAndContent)
+                $0.left.equalTo(rewardView.snp.right).offset(builder.spaceBetweenImageAndContent)
+                $0.right.equalToSuperview().offset(-builder.horizontalPadding)
+                $0.bottom.equalToSuperview().offset(-builder.spaceBetweenContentAndBottom)
+            }
+        }
+        
+        setNeedsLayout()
+        layoutIfNeeded()
     }
 }
 
