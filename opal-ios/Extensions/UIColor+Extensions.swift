@@ -12,6 +12,9 @@ import UIKit
 
 extension UIColor {
     
+    static let darkBackgroundColor = UIColor(hex: "#171A19")!
+    static let blueOpal100 = UIColor(hex: "#0275FF")!
+    
     public convenience init?(hex: String) {
         let r, g, b: CGFloat
         

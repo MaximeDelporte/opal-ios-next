@@ -25,10 +25,11 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     
     private func setUpViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .darkBackgroundColor
         view.addSubview(referredButton)
+        
         referredButton.setTitle("Open Sponsorship View", for: .normal)
-        referredButton.setTitleColor(.blue, for: .normal)
+        referredButton.setTitleColor(.white, for: .normal)
     }
     
     private func setUpConstraints() {

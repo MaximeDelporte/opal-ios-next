@@ -14,12 +14,11 @@ class SponsorshipViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     
-    // Guest Pass view
-    private let guestPassView = UIView()
-    private let guestPassTitleImageView = UIImageView()
-    private let guestPassDescriptionLabel = UILabel()
+    private let topCardView = UIView()
+    private let topCardImageView = UIImageView()
+    private let topCardLabel = UILabel()
     
-    private let sponsorshipDescriptionLabel = UILabel()
+    private let descriptionLabel = UILabel()
     private let referredCard = UIView()
     private let addFriendsButton = UIButton()
     private let shareReferralLinkButton = UIButton()
@@ -28,6 +27,8 @@ class SponsorshipViewController: UIViewController {
     
     private var cancellable = Set<AnyCancellable>()
     private let viewModel = SponsorshipViewModel()
+    
+    private let builder = SponsorshipViewBuilder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,31 +48,33 @@ class SponsorshipViewController: UIViewController {
 extension SponsorshipViewController {
     
     private func setUpViews() {
-        view.backgroundColor = UIColor(hex: "#141414")!
+        view.backgroundColor = builder.backgroundColor
         view.addSubview(scrollView)
         
-        guestPassView.backgroundColor = .purple
-        guestPassView.layer.cornerRadius = 16
-        guestPassTitleImageView.image = UIImage(named: "opal-title")
-        guestPassDescriptionLabel.text = "30-day Guest Pass"
-        guestPassDescriptionLabel.font = .systemFont(ofSize: 12, weight: .semibold)
-        guestPassDescriptionLabel.textColor = .white.withAlphaComponent(0.9)
+        topCardView.backgroundColor = builder.topCardBackgroundColor
+        topCardView.layer.cornerRadius = builder.cardCornerRadius
         
-        sponsorshipDescriptionLabel.text = "Give a friend unlimited access to Opal Pro, including unlimited schedules, app limits, deep focus, whitelisting and more!"
-        sponsorshipDescriptionLabel.font = .systemFont(ofSize: 16, weight: .regular)
-        sponsorshipDescriptionLabel.textColor = .white
-        sponsorshipDescriptionLabel.textAlignment = .center
-        sponsorshipDescriptionLabel.numberOfLines = 0
+        topCardImageView.image = UIImage(named: "opal-title")
         
-        addFriendsButton.setTitle("Add Friends", for: .normal)
-        addFriendsButton.setTitleColor(.white, for: .normal)
-        addFriendsButton.backgroundColor = UIColor(hex: "#0075FF")
+        topCardLabel.text = builder.topCardLabelText
+        topCardLabel.font = builder.topCardLabelFont
+        topCardLabel.textColor = builder.topCardLabelColor
         
-        guestPassView.addSubview(guestPassTitleImageView)
-        guestPassView.addSubview(guestPassDescriptionLabel)
+        descriptionLabel.text = builder.descriptionLabelText
+        descriptionLabel.font = builder.descriptionLabelFont
+        descriptionLabel.textColor = builder.descriptionLabelColor
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.numberOfLines = 0
         
-        scrollView.addSubview(guestPassView)
-        scrollView.addSubview(sponsorshipDescriptionLabel)
+        addFriendsButton.setTitle(builder.addFriendsText, for: .normal)
+        addFriendsButton.setTitleColor(builder.addFriendsTextColor, for: .normal)
+        addFriendsButton.backgroundColor = builder.addFriendsBackgroundColor
+        
+        topCardView.addSubview(topCardImageView)
+        topCardView.addSubview(topCardLabel)
+        
+        scrollView.addSubview(topCardView)
+        scrollView.addSubview(descriptionLabel)
         scrollView.addSubview(addFriendsButton)
     }
     
@@ -80,31 +83,31 @@ extension SponsorshipViewController {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        guestPassView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
-            $0.left.equalTo(view).offset(16)
-            $0.right.equalTo(view).offset(-16)
+        topCardView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(builder.topToCardView)
+            $0.left.equalTo(view).offset(builder.horizontalPadding)
+            $0.right.equalTo(view).offset(-builder.horizontalPadding)
         }
         
-        guestPassTitleImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(64)
+        topCardImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(builder.cardViewToCardImageView)
             $0.centerX.equalToSuperview()
         }
         
-        guestPassDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(guestPassTitleImageView.snp.bottom).offset(8)
+        topCardLabel.snp.makeConstraints {
+            $0.top.equalTo(topCardImageView.snp.bottom).offset(builder.cardImageViewToCardLabel)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-64)
+            $0.bottom.equalToSuperview().offset(-builder.cardLabelToBottomCardView)
         }
         
-        sponsorshipDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(guestPassView.snp.bottom).offset(32)
-            $0.left.right.equalTo(guestPassView)
+        descriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(topCardView.snp.bottom).offset(builder.bottomCardViewToDescriptionLabel)
+            $0.left.right.equalTo(topCardView)
         }
         
         addFriendsButton.snp.makeConstraints {
-            $0.top.equalTo(sponsorshipDescriptionLabel.snp.bottom).offset(32)
-            $0.left.right.equalTo(guestPassView)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(32)
+            $0.left.right.equalTo(topCardView)
         }
     }
     
@@ -115,7 +118,7 @@ extension SponsorshipViewController {
             guard let self = self else { return }
             switch state {
             case .loading:
-                print("Show loader")
+                break
             case .loaded(let sponsorship):
                 self.addCards(from: sponsorship.rewards)
             }
@@ -130,7 +133,7 @@ extension SponsorshipViewController {
 extension SponsorshipViewController {
     
     @objc private func displayShareSheet() {
-        let shareContent = "Share Opal with your friends !"
+        let shareContent = builder.shareContentText
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         self.present(activityViewController, animated: true)
     }
@@ -154,7 +157,7 @@ extension SponsorshipViewController {
             if isFirstCard {
                 rewardCard.snp.makeConstraints {
                     $0.top.equalTo(addFriendsButton.snp.bottom).offset(32)
-                    $0.left.right.equalTo(guestPassView)
+                    $0.left.right.equalTo(topCardView)
                 }
             } 
             else {
@@ -164,13 +167,13 @@ extension SponsorshipViewController {
                 if isLastCard {
                     rewardCard.snp.makeConstraints {
                         $0.top.equalTo(previousCard.snp.bottom).offset(16)
-                        $0.left.right.equalTo(guestPassView)
+                        $0.left.right.equalTo(topCardView)
                         $0.bottom.equalToSuperview().offset(-32)
                     }
                 } else {
                     rewardCard.snp.makeConstraints {
                         $0.top.equalTo(previousCard.snp.bottom).offset(16)
-                        $0.left.right.equalTo(guestPassView)
+                        $0.left.right.equalTo(topCardView)
                     }
                 }
             }
