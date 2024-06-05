@@ -34,6 +34,20 @@ class RewardCardBuilder_Tests: XCTestCase {
         XCTAssertEqual(builder.titleText, "Loyal Gem")
         XCTAssertEqual(builder.descriptionText, "Unlock this special milestone")
         XCTAssertEqual(builder.imageUrl, "loyal-gem")
+        XCTAssertEqual(builder.claimButtonText, "Claim")
+        
+        XCTAssertEqual(builder.requirementFont, .captionSemibold)
+        XCTAssertEqual(builder.titleFont, .bodyMedium)
+        XCTAssertEqual(builder.descriptionFont, .footnoteSemibold)
+        XCTAssertEqual(builder.claimButtonFont, .footnoteRegular)
+        
+        XCTAssertEqual(builder.cardBackgroundColor, UIColor(hex: "#141414")!)
+        XCTAssertEqual(builder.cardBorderColor, UIColor.white.withAlphaComponent(0.1).cgColor)
+        XCTAssertEqual(builder.descriptionColor, .white.withAlphaComponent(0.4))
+        XCTAssertEqual(builder.progressViewBackgroundColor, .white.withAlphaComponent(0.1))
+        XCTAssertEqual(builder.rewardViewBackgroundColor, .white.withAlphaComponent(0.1))
+        
+        XCTAssertEqual(builder.cardCornerRadius, 18)
         XCTAssertTrue(builder.ongoingMode)
     }
 }

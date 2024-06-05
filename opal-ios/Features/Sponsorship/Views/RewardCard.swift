@@ -13,9 +13,9 @@ class RewardCard: UIView {
     
     private let rewardView = UIView()
     private let rewardImageView = UIImageView()
-    private let requirementLabel = UILabel(font: .captionSemibold)
-    private let titleLabel = UILabel(font: .bodyMedium)
-    private let descriptionLabel = UILabel(font: .footnoteSemibold)
+    private let requirementLabel = UILabel()
+    private let titleLabel = UILabel()
+    private let descriptionLabel = UILabel()
     private let claimButton = UIButton()
     private let progressView = UIView()
     
@@ -43,35 +43,38 @@ class RewardCard: UIView {
 extension RewardCard {
     
     private func setUpViews() {
-        backgroundColor = UIColor(hex: "#141414")
-        layer.cornerRadius = 18
-        layer.borderColor = UIColor.white.withAlphaComponent(0.1).cgColor
+        backgroundColor = builder.cardBackgroundColor
+        layer.cornerRadius = builder.cardCornerRadius
+        layer.borderColor = builder.cardBorderColor
         layer.borderWidth = 1
     
         requirementLabel.text = builder.requirementText
+        requirementLabel.font = builder.requirementFont
         requirementLabel.textColor = .purple
         
         titleLabel.text = builder.titleText
+        titleLabel.font = builder.titleFont
         
         descriptionLabel.text = builder.descriptionText
-        descriptionLabel.textColor = .white.withAlphaComponent(0.4)
+        descriptionLabel.font = builder.descriptionFont
+        descriptionLabel.textColor = builder.descriptionColor
         
         if builder.ongoingMode {
-            progressView.backgroundColor = .white.withAlphaComponent(0.1)
+            progressView.backgroundColor = builder.progressViewBackgroundColor
             progressView.layer.cornerRadius = progressView.frame.height / 2
             
             addSubview(progressView)
         } else {
-            claimButton.setTitle("Claim", for: .normal)
-            claimButton.titleLabel?.font = .footnoteRegular
+            claimButton.setTitle(builder.claimButtonText, for: .normal)
+            claimButton.titleLabel?.font = builder.claimButtonFont
             claimButton.setTitleColor(.black, for: .normal)
             claimButton.backgroundColor = .white
             
             addSubview(claimButton)
         }
         
-        rewardView.backgroundColor = .white.withAlphaComponent(0.1)
-        rewardView.layer.cornerRadius = 18
+        rewardView.backgroundColor = builder.rewardViewBackgroundColor
+        rewardView.layer.cornerRadius = builder.cardCornerRadius
         rewardView.addSubview(rewardImageView)
         rewardImageView.image = UIImage(named: builder.imageUrl)
         rewardImageView.contentMode = .scaleAspectFit
