@@ -31,8 +31,6 @@ class RewardCard: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         claimButton.layer.cornerRadius = claimButton.frame.height / 2
-        print("rewardView.frame.maxY: \(rewardView.frame.maxY)")
-        print("claimButton.frame.maxY: \(claimButton.frame.maxY)")
     }
     
     private var ongoingMode: Bool {
@@ -72,7 +70,6 @@ extension RewardCard {
             claimButton.titleLabel?.font = .footnoteRegular
             claimButton.setTitleColor(.black, for: .normal)
             claimButton.backgroundColor = .white
-            claimButton.layer.cornerRadius = 16
             
             addSubview(claimButton)
         }
@@ -132,30 +129,6 @@ extension RewardCard {
             }
         }
     }
-    
-//    func updateLayout() {
-//        let labelsHeight = label1.intrinsicContentSize.height + label2.intrinsicContentSize.height + label3.intrinsicContentSize.height
-//        let shouldCenterImageVertically = labelsHeight < 100
-//        
-//        // Adjust vertical alignment based on the total height of labels
-//        if shouldCenterImageVertically {
-//            // Center Image Vertically
-//            NSLayoutConstraint.activate([
-//                imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-//                labelsStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
-//            ])
-//        } else {
-//            // Center Labels Vertically
-//            NSLayoutConstraint.activate([
-//                labelsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-//                imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
-//            ])
-//        }
-//        
-//        // Update layout
-//        setNeedsLayout()
-//        layoutIfNeeded()
-//    }
 }
 
 #Preview {

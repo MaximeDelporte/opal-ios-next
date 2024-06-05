@@ -16,7 +16,7 @@ class RewardCardBuilder_Tests: XCTestCase {
         let requireFriendsAndExpectedTexts = [
             (1, "1 FRIEND"),
             (2, "2 FRIENDS"),
-            (10, "10 FRIENDS"),
+            (10, "10 FRIENDS")
         ]
         
         for (requireFriend, expectedText) in requireFriendsAndExpectedTexts {
