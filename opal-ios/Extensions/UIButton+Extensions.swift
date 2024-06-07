@@ -34,6 +34,15 @@ extension UIButton {
             .backgroundColor(.white100)
             .foregroundColor(.black100)
     }
+    
+    func update(font: UIFont) -> UIButton {
+        guard let text = self.titleLabel?.text else {
+            return self
+        }
+        let attributes = AttributeContainer([.font: font])
+        self.configuration?.attributedTitle = AttributedString(text, attributes: attributes)
+        return self
+    }
 }
 
 // MARK: - Convenience Methods
@@ -42,7 +51,8 @@ extension UIButton {
     
     private static func getDefaultButton(with title: String, and imageName: String? = nil) -> UIButton {
         var configuration = UIButton.Configuration.plain()
-        configuration.title = title
+        let attributes = AttributeContainer([.font: UIFont.bodyMedium])
+        configuration.attributedTitle = AttributedString(title, attributes: attributes)
         configuration.cornerStyle = .capsule
         
         if let imageName {

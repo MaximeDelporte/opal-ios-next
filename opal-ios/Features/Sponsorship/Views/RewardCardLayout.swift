@@ -38,6 +38,7 @@ class RewardCardLayout {
     let spaceBetweenDescriptionAndProgressView: CGFloat
     let spaceBetweenDescriptionAndClaimButton: CGFloat
     let buttonHeight: CGFloat
+    let buttonWidth: CGFloat
     let spaceBetweenContentAndBottom: CGFloat
     
     let cardCornerRadius: CGFloat
@@ -76,6 +77,7 @@ class RewardCardLayout {
         spaceBetweenDescriptionAndProgressView = 8
         spaceBetweenDescriptionAndClaimButton = 12
         buttonHeight = 32
+        buttonWidth = 100
         spaceBetweenContentAndBottom = 16
         
         cardCornerRadius = 18

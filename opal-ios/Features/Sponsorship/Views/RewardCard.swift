@@ -17,7 +17,7 @@ class RewardCard: UIView {
     private let requirementLabel = UILabel()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
-    private let claimButton = UIButton()
+    private lazy var claimButton = UIButton.tertiary(title: layout.claimButtonText)
     private let progressView = UIView()
     
     private let layout: RewardCardLayout
@@ -27,11 +27,6 @@ class RewardCard: UIView {
         super.init(frame: .zero)
         setUpViews()
         setUpConstraints()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        claimButton.layer.cornerRadius = claimButton.frame.height / 2
     }
     
     required init?(coder: NSCoder) {
@@ -76,11 +71,7 @@ extension RewardCard {
             
             contentView.addSubview(progressView)
         } else {
-            claimButton.setTitle(layout.claimButtonText, for: .normal)
-            claimButton.titleLabel?.font = layout.claimButtonFont
-            claimButton.setTitleColor(.black, for: .normal)
-            claimButton.backgroundColor = .white
-            
+            claimButton.update(font: layout.claimButtonFont)
             contentView.addSubview(claimButton)
         }
         
@@ -123,6 +114,7 @@ extension RewardCard {
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(layout.spaceBetweenDescriptionAndClaimButton)
                 $0.left.equalTo(requirementLabel)
                 $0.height.equalTo(layout.buttonHeight)
+                $0.width.equalTo(layout.buttonWidth)
                 $0.bottom.equalToSuperview()
             }
         }

@@ -208,10 +208,10 @@
 			isa = PBXGroup;
 			children = (
 				FCF938052C0F6A6F00E1AF04 /* Bundle+Extensions.swift */,
-				FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */,
-				FC760D912C11052600649DCF /* UIFont+Extensions.swift */,
-				FC52F3522C130981003D6719 /* UIButton+Extensions.swift */,
 				FC52F3542C13141E003D6719 /* CGFloat+Extensions.swift */,
+				FC52F3522C130981003D6719 /* UIButton+Extensions.swift */,
+				FC760D912C11052600649DCF /* UIFont+Extensions.swift */,
+				FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
