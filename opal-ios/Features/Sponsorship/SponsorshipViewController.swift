@@ -26,7 +26,10 @@ class SponsorshipViewController: UIViewController {
         imageName: layout.addFriendsButtonImage
     )
     
-    private let shareReferralLinkButton = UIButton()
+    private lazy var shareReferralButton = UIButton.tertiary(
+        title: layout.shareButtontText,
+        imageName: layout.shareButtonImage
+    )
     
     private var rewardCards = [RewardCard]()
     
@@ -72,6 +75,7 @@ extension SponsorshipViewController {
         scrollView.addSubview(topCardView)
         scrollView.addSubview(descriptionLabel)
         scrollView.addSubview(addFriendsButton)
+        scrollView.addSubview(shareReferralButton)
     }
     
     private func setUpConstraints() {
@@ -106,6 +110,12 @@ extension SponsorshipViewController {
             $0.height.equalTo(CGFloat.ButtonHeight.small)
             $0.left.right.equalTo(topCardView)
         }
+        
+        shareReferralButton.snp.makeConstraints {
+            $0.top.equalTo(addFriendsButton.snp.bottom).offset(8)
+            $0.height.equalTo(CGFloat.ButtonHeight.small)
+            $0.left.right.equalTo(topCardView)
+        }
     }
     
     private func setUpBindings() {
@@ -130,7 +140,7 @@ extension SponsorshipViewController {
 extension SponsorshipViewController {
     
     @objc private func displayShareSheet() {
-        let shareContent = layout.shareContentText
+        let shareContent = layout.shareContentModaltext
         let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
         self.present(activityViewController, animated: true)
     }
@@ -153,7 +163,7 @@ extension SponsorshipViewController {
             
             if isFirstCard {
                 rewardCard.snp.makeConstraints {
-                    $0.top.equalTo(addFriendsButton.snp.bottom).offset(layout.addFriendsToFirstRewardCard)
+                    $0.top.equalTo(shareReferralButton.snp.bottom).offset(layout.addFriendsToFirstRewardCard)
                     $0.left.right.equalTo(topCardView)
                 }
             } 
