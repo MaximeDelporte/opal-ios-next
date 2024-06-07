@@ -46,7 +46,12 @@ extension UIButton {
         configuration.cornerStyle = .capsule
         
         if let imageName {
-            configuration.image = UIImage(systemName: imageName)
+            let config = UIImage.SymbolConfiguration(
+                pointSize: 13,
+                weight: .medium,
+                scale: .default
+            )
+            configuration.image = UIImage(systemName: imageName, withConfiguration: config)
             configuration.imagePadding = 8
             configuration.imagePlacement = .leading
         }
@@ -54,6 +59,7 @@ extension UIButton {
         let button = UIButton(configuration: configuration)
         button.titleLabel?.text = title
         button.titleLabel?.font = .bodyMedium
+        
         return button
     }
     
