@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     
     private func setUpViews() {
-        view.backgroundColor = .darkBackgroundColor
+        view.backgroundColor = .black80
         view.addSubview(referredButton)
         
         referredButton.setTitle("Open Sponsorship View", for: .normal)

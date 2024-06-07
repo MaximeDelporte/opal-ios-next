@@ -27,7 +27,7 @@ class RewardCardBuilder_Tests: XCTestCase {
         }
     }
     
-    func test_verifyTheBuildersProperties() {
+    func test_verifyTheLayoutProperties() {
         let reward = Reward.getReward(requiredFriends: 5)
         let layout = RewardCardLayout(reward: reward)
         
@@ -41,7 +41,7 @@ class RewardCardBuilder_Tests: XCTestCase {
         XCTAssertEqual(layout.descriptionFont, .footnoteSemibold)
         XCTAssertEqual(layout.claimButtonFont, .footnoteRegular)
         
-        XCTAssertEqual(layout.cardBackgroundColor, UIColor(hex: "#141414")!)
+        XCTAssertEqual(layout.cardBackgroundColor, UIColor.black80)
         XCTAssertEqual(layout.cardBorderColor, UIColor.white.withAlphaComponent(0.1).cgColor)
         XCTAssertEqual(layout.descriptionColor, .white.withAlphaComponent(0.4))
         XCTAssertEqual(layout.progressViewBackgroundColor, .white.withAlphaComponent(0.1))

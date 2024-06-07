@@ -10,6 +10,8 @@ import UIKit
 
 class SponsorshipViewLayout {
 
+    let addFriendsImage: String
+    
     let topCardLabelText: String
     let descriptionLabelText: String
     let addFriendsText: String
@@ -22,8 +24,6 @@ class SponsorshipViewLayout {
     let topCardBackgroundColor: UIColor
     let topCardLabelColor: UIColor
     let descriptionLabelColor: UIColor
-    let addFriendsTextColor: UIColor
-    let addFriendsBackgroundColor: UIColor
     
     let horizontalPadding: CGFloat
     let topToCardView: CGFloat
@@ -38,6 +38,8 @@ class SponsorshipViewLayout {
     let cardCornerRadius: CGFloat
     
     init() {
+        addFriendsImage = "person.crop.circle.badge.plus"
+        
         topCardLabelText = "30-day Guest Pass"
         descriptionLabelText = "Give a friend unlimited access to Opal Pro, including unlimited schedules, app limits, deep focus, whitelisting and more!"
         addFriendsText = "Add Friends"
@@ -46,12 +48,10 @@ class SponsorshipViewLayout {
         topCardLabelFont = .captionSemibold
         descriptionLabelFont = .calloutRegular
         
-        backgroundColor = .darkBackgroundColor
+        backgroundColor = .black80
         topCardBackgroundColor = .purple
         topCardLabelColor = .white.withAlphaComponent(0.9)
-        descriptionLabelColor = .white
-        addFriendsTextColor = .white
-        addFriendsBackgroundColor = .blueOpal100
+        descriptionLabelColor = .white100
         
         horizontalPadding = 16
         topToCardView = 16

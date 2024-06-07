@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC52F3532C130981003D6719 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC52F3522C130981003D6719 /* UIButton+Extensions.swift */; };
+		FC52F3552C13141E003D6719 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC52F3542C13141E003D6719 /* CGFloat+Extensions.swift */; };
 		FC760D902C11015400649DCF /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */; };
 		FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D912C11052600649DCF /* UIFont+Extensions.swift */; };
 		FC760D942C110B6200649DCF /* RewardCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D932C110B6200649DCF /* RewardCardLayout.swift */; };
@@ -29,7 +31,6 @@
 		FCF938072C0F6A9000E1AF04 /* sponsorship.json in Resources */ = {isa = PBXBuildFile; fileRef = FCF937F22C0F5EB600E1AF04 /* sponsorship.json */; };
 		FCF938092C0F6BBC00E1AF04 /* Sponsorship.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF938082C0F6BBC00E1AF04 /* Sponsorship.swift */; };
 		FCF9380C2C0F7E5F00E1AF04 /* RewardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */; };
-		FCF9380E2C0F7FC300E1AF04 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9380D2C0F7FC300E1AF04 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC52F3522C130981003D6719 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		FC52F3542C13141E003D6719 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		FC760D912C11052600649DCF /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		FC760D932C110B6200649DCF /* RewardCardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCardLayout.swift; sourceTree = "<group>"; };
@@ -74,7 +77,6 @@
 		FCF938052C0F6A6F00E1AF04 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		FCF938082C0F6BBC00E1AF04 /* Sponsorship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsorship.swift; sourceTree = "<group>"; };
 		FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCard.swift; sourceTree = "<group>"; };
-		FCF9380D2C0F7FC300E1AF04 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,9 +208,10 @@
 			isa = PBXGroup;
 			children = (
 				FCF938052C0F6A6F00E1AF04 /* Bundle+Extensions.swift */,
-				FCF9380D2C0F7FC300E1AF04 /* UIColor+Extensions.swift */,
 				FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */,
 				FC760D912C11052600649DCF /* UIFont+Extensions.swift */,
+				FC52F3522C130981003D6719 /* UIButton+Extensions.swift */,
+				FC52F3542C13141E003D6719 /* CGFloat+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				FCF937FA2C0F638300E1AF04 /* Reward.swift in Sources */,
 				FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */,
+				FC52F3552C13141E003D6719 /* CGFloat+Extensions.swift in Sources */,
 				FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */,
 				FCF9380C2C0F7E5F00E1AF04 /* RewardCard.swift in Sources */,
 				FC760D9B2C11278600649DCF /* SponsorshipViewLayout.swift in Sources */,
@@ -371,7 +375,7 @@
 				FCF938032C0F68D100E1AF04 /* SponsorshipViewModel.swift in Sources */,
 				FC760D902C11015400649DCF /* UILabel+Extensions.swift in Sources */,
 				FCF938092C0F6BBC00E1AF04 /* Sponsorship.swift in Sources */,
-				FCF9380E2C0F7FC300E1AF04 /* UIColor+Extensions.swift in Sources */,
+				FC52F3532C130981003D6719 /* UIButton+Extensions.swift in Sources */,
 				FCF937F52C0F60BD00E1AF04 /* SponsorshipViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

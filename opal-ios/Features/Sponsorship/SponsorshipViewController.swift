@@ -20,7 +20,12 @@ class SponsorshipViewController: UIViewController {
     
     private let descriptionLabel = UILabel()
     private let referredCard = UIView()
-    private let addFriendsButton = UIButton()
+    
+    private lazy var addFriendsButton = UIButton.primary(
+        title: layout.addFriendsText,
+        imageName: layout.addFriendsImage
+    )
+    
     private let shareReferralLinkButton = UIButton()
     
     private var rewardCards = [RewardCard]()
@@ -35,11 +40,6 @@ class SponsorshipViewController: UIViewController {
         setUpViews()
         setUpConstraints()
         setUpBindings()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        addFriendsButton.layer.cornerRadius = addFriendsButton.frame.height / 2
     }
 }
 
@@ -65,10 +65,6 @@ extension SponsorshipViewController {
         descriptionLabel.textColor = layout.descriptionLabelColor
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
-        
-        addFriendsButton.setTitle(layout.addFriendsText, for: .normal)
-        addFriendsButton.setTitleColor(layout.addFriendsTextColor, for: .normal)
-        addFriendsButton.backgroundColor = layout.addFriendsBackgroundColor
         
         topCardView.addSubview(topCardImageView)
         topCardView.addSubview(topCardLabel)
@@ -107,6 +103,7 @@ extension SponsorshipViewController {
         
         addFriendsButton.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(32)
+            $0.height.equalTo(CGFloat.ButtonHeight.small)
             $0.left.right.equalTo(topCardView)
         }
     }
