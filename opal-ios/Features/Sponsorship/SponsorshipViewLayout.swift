@@ -10,12 +10,14 @@ import UIKit
 
 class SponsorshipViewLayout {
 
-    let addFriendsImage: String
+    let addFriendsButtonImage: String
+    let shareButtonImage: String
     
     let topCardLabelText: String
     let descriptionLabelText: String
-    let addFriendsText: String
-    let shareContentText: String
+    let addFriendsButtonText: String
+    let shareButtontText: String
+    let shareContentModaltext: String
     
     let topCardLabelFont: UIFont
     let descriptionLabelFont: UIFont
@@ -38,12 +40,14 @@ class SponsorshipViewLayout {
     let cardCornerRadius: CGFloat
     
     init() {
-        addFriendsImage = "person.crop.circle.badge.plus"
+        addFriendsButtonImage = "person.crop.circle.badge.plus"
+        shareButtonImage = "square.and.arrow.up"
         
         topCardLabelText = "30-day Guest Pass"
         descriptionLabelText = "Give a friend unlimited access to Opal Pro, including unlimited schedules, app limits, deep focus, whitelisting and more!"
-        addFriendsText = "Add Friends"
-        shareContentText = "Share Opal with your friends !"
+        addFriendsButtonText = "Add Friends"
+        shareButtontText = "Share Referral Link"
+        shareContentModaltext = "Share Opal with your friends !"
         
         topCardLabelFont = .captionSemibold
         descriptionLabelFont = .calloutRegular

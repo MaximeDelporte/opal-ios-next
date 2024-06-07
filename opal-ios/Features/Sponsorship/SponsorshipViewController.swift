@@ -22,8 +22,8 @@ class SponsorshipViewController: UIViewController {
     private let referredCard = UIView()
     
     private lazy var addFriendsButton = UIButton.primary(
-        title: layout.addFriendsText,
-        imageName: layout.addFriendsImage
+        title: layout.addFriendsButtonText,
+        imageName: layout.addFriendsButtonImage
     )
     
     private let shareReferralLinkButton = UIButton()
