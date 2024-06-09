@@ -14,7 +14,7 @@ class RewardCard: UIView {
     private let rewardView = UIView()
     private let rewardImageView = UIImageView()
     private let contentView = UIView()
-    private let requirementLabel = UILabel()
+    private let requirementLabel = GradientLabel(gradient: .purple)
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private lazy var claimButton = UIButton.tertiary(title: layout.claimButtonText)
@@ -46,7 +46,6 @@ extension RewardCard {
     
         requirementLabel.text = layout.requirementText
         requirementLabel.font = layout.requirementFont
-        requirementLabel.textColor = .purple
         requirementLabel.numberOfLines =  0
         
         rewardView.backgroundColor = layout.rewardViewBackgroundColor

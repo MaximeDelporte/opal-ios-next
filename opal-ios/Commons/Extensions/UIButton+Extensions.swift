@@ -35,13 +35,13 @@ extension UIButton {
             .foregroundColor(.black100)
     }
     
-    func update(font: UIFont) -> UIButton {
+    func update(font: UIFont) {
         guard let text = self.titleLabel?.text else {
-            return self
+            return
         }
         let attributes = AttributeContainer([.font: font])
         self.configuration?.attributedTitle = AttributedString(text, attributes: attributes)
-        return self
+        return
     }
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FC52F3532C130981003D6719 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC52F3522C130981003D6719 /* UIButton+Extensions.swift */; };
 		FC52F3552C13141E003D6719 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC52F3542C13141E003D6719 /* CGFloat+Extensions.swift */; };
+		FC70EFC92C162AF000B9CB6C /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70EFC82C162AF000B9CB6C /* GradientLabel.swift */; };
 		FC760D902C11015400649DCF /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */; };
 		FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D912C11052600649DCF /* UIFont+Extensions.swift */; };
 		FC760D942C110B6200649DCF /* RewardCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D932C110B6200649DCF /* RewardCardLayout.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		FC52F3522C130981003D6719 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		FC52F3542C13141E003D6719 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		FC70EFC82C162AF000B9CB6C /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
 		FC760D8F2C11015400649DCF /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		FC760D912C11052600649DCF /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		FC760D932C110B6200649DCF /* RewardCardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCardLayout.swift; sourceTree = "<group>"; };
@@ -105,6 +107,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC70EFC62C162ADC00B9CB6C /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				FC70EFC72C162AE400B9CB6C /* Views */,
+				FCF938042C0F6A6600E1AF04 /* Extensions */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		FC70EFC72C162AE400B9CB6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC70EFC82C162AF000B9CB6C /* GradientLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FC760D972C110D5000649DCF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */,
-				FCF938042C0F6A6600E1AF04 /* Extensions */,
+				FC70EFC62C162ADC00B9CB6C /* Commons */,
 				FCF937F82C0F637900E1AF04 /* Models */,
 				FCF937F62C0F60BF00E1AF04 /* Features */,
 				FCF937E82C0F5A0800E1AF04 /* Resources */,
@@ -364,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF937FA2C0F638300E1AF04 /* Reward.swift in Sources */,
+				FC70EFC92C162AF000B9CB6C /* GradientLabel.swift in Sources */,
 				FC760D922C11052600649DCF /* UIFont+Extensions.swift in Sources */,
 				FC52F3552C13141E003D6719 /* CGFloat+Extensions.swift in Sources */,
 				FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */,

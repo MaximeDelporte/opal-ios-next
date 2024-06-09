@@ -120,6 +120,7 @@ extension SponsorshipViewController {
     
     private func setUpBindings() {
         addFriendsButton.addTarget(self, action: #selector(displayShareSheet), for: .touchUpInside)
+        shareReferralButton.addTarget(self, action: #selector(displayShareSheet), for: .touchUpInside)
         
         viewModel.statePublisher.sink(receiveValue: { [weak self] state in
             guard let self = self else { return }
