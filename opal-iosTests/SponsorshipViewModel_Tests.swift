@@ -11,6 +11,15 @@ import XCTest
 
 final class SponsorshipViewModel_Tests: XCTestCase {
     
+    private var viewModel: SponsorshipViewModel!
+    private var spy: StateSpy!
+    
+    override func setUp() {
+        super.setUp()
+        self.viewModel = SponsorshipViewModel()
+        self.spy = StateSpy(viewModel.statePublisher)
+    }
+    
     func test_sponsorship_properties() {
         let reward = Reward.getReward(requiredFriends: 1)
         let sponsorship = Sponsorship(
@@ -29,13 +38,8 @@ final class SponsorshipViewModel_Tests: XCTestCase {
     }
     
     func test_whenSponsorshipRequestIsSuccessful_thenWeShouldHaveProperties() {
-        // arrange
-        let viewModel = SponsorshipViewModel()
-        let spy = StateSpy(viewModel.statePublisher)
-        
         // act
         viewModel.loadRewards()
-        
         // assert
         XCTAssertEqual(spy.states.count, 2)
     }

@@ -11,14 +11,17 @@ import Foundation
 
 extension Reward {
     
-    static func getReward(requiredFriends: Int) -> Reward {
+    static func getReward(
+        requiredFriends: Int = 1,
+        status: Reward.Status = .ongoing
+    ) -> Reward {
         Reward(
             imageUrl: "loyal-gem",
             requiredFriends: requiredFriends,
             title: "Loyal Gem",
             description: "Unlock this special milestone",
             excludePremiums: false,
-            status: .ongoing
+            status: status
         )
     }
 }

@@ -119,7 +119,7 @@ extension SponsorshipViewController {
             case .loading:
                 break
             case .loaded(let sponsorship):
-                self.addCards(from: sponsorship.rewards)
+                self.createCards(with: sponsorship.rewards)
             }
         }).store(in: &cancellable)
         
@@ -190,9 +190,11 @@ extension SponsorshipViewController {
         self.present(activityViewController, animated: true)
     }
     
-    private func addCards(from rewards: [Reward]) {
+    private func createCards(with rewards: [Reward]) {
         for reward in rewards {
-            let layout = RewardCardLayout(reward: reward)
+            let layout = RewardCardLayout(
+                reward: reward
+            )
             let rewardCard = RewardCard(layout: layout)
             rewardCards.append(rewardCard)
         }

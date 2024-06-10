@@ -10,7 +10,8 @@ import Foundation
 struct Reward: Decodable {
     
     enum Status: Int, Decodable {
-        case ongoing = 0
+        case todo = 0
+        case ongoing
         case claim
         case claimed
     }

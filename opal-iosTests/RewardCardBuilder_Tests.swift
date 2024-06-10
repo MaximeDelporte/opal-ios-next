@@ -1,5 +1,5 @@
 //
-//  RewardCardBuilder_Tests.swift
+//  RewardCardLayout_Tests.swift
 //  opal-iosTests
 //
 //  Created by afx on 05/06/2024.
@@ -10,7 +10,7 @@ import XCTest
 
 @testable import opal_ios
 
-class RewardCardBuilder_Tests: XCTestCase {
+class RewardCardLayout_Tests: XCTestCase {
     
     func test_requirementTextShouldChange_dependingOfRequireFriendsValue() {
         let requireFriendsAndExpectedTexts = [
@@ -49,5 +49,20 @@ class RewardCardBuilder_Tests: XCTestCase {
         
         XCTAssertEqual(layout.cardCornerRadius, 18)
         XCTAssertTrue(layout.ongoingMode)
+    }
+    
+    func test_backgroundColorShouldBeDifferent_whenOngoingStatusIsSet() {
+        let statusAndColors: [(Reward.Status, UIColor)] = [
+            (.todo, .black80),
+            (.ongoing, .white10),
+            (.claim, .black80),
+            (.claimed, .black80)
+        ]
+        
+        for (status, color) in statusAndColors {
+            let reward = Reward.getReward(status: status)
+            let layout = RewardCardLayout(reward: reward)
+            XCTAssertEqual(layout.cardBackgroundColor, color)
+        }
     }
 }

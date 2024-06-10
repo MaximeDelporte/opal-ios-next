@@ -18,7 +18,7 @@ class SponsorshipViewModel {
     private var cancellables: Set<AnyCancellable> = []
     private let stateSubject = CurrentValueSubject<SponsorshipViewModel.State, Never>(.loading)
 
-    // MARK: - Public Properties
+    // MARK: - Public Interface
     
     var statePublisher: AnyPublisher<SponsorshipViewModel.State, Never> {
         stateSubject.eraseToAnyPublisher()

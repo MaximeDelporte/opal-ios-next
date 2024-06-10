@@ -7,7 +7,7 @@
             "title": "Loyal Gem",
             "description": "Unlock this special milestone",
             "exclude_premiums": false,
-            "status": 2
+            "status": 3
         },
         {
             "image_url": "soulful-gem",
@@ -15,7 +15,7 @@
             "title": "Soulful Gem",
             "description": "Unlock this special milestone",
             "exclude_premiums": false,
-            "status": 1
+            "status": 2
         },
         {
             "image_url": "opal-reward",
@@ -23,7 +23,7 @@
             "title": "1 Year of Opal Pro",
             "description": "Unlock one whole year of Opal Pro for Free.",
             "exclude_premiums": true,
-            "status": 0
+            "status": 1
         },
         {
             "image_url": "popular-gem",
