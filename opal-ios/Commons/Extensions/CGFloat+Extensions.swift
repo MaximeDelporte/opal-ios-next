@@ -10,9 +10,9 @@ import Foundation
 extension CGFloat {
     
     enum ButtonHeight {
-        static let xLarge = 56
-        static let large = 48
-        static let medium = 44
-        static let small = 36
+        static let xLarge: CGFloat = 56
+        static let large: CGFloat = 48
+        static let medium: CGFloat = 44
+        static let small: CGFloat = 36
     }
 }

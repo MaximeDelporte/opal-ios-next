@@ -10,63 +10,79 @@ import UIKit
 
 class SponsorshipViewLayout {
 
-    let addFriendsButtonImage: String
-    let shareButtonImage: String
-    
-    let topCardLabelText: String
-    let descriptionLabelText: String
-    let addFriendsButtonText: String
-    let shareButtontText: String
-    let shareContentModaltext: String
-    
-    let topCardLabelFont: UIFont
-    let descriptionLabelFont: UIFont
-    
     let backgroundColor: UIColor
-    let topCardBackgroundColor: UIColor
-    let topCardLabelColor: UIColor
+    let topBackgroundImage: String
+    
+    let guestPassCornerRadius: CGFloat
+    let guestPassBackgroundImage: String
+    let guestPassSealImage: String
+    let guestPassTitleImage: String
+    let guestPassDescriptionText: String
+    let guestPassDescriptionTextColor: UIColor
+    let guestPassDescriptionFont: UIFont
+    
+    let descriptionLabelText: String
+    let descriptionLabelFont: UIFont
     let descriptionLabelColor: UIColor
     
-    let horizontalPadding: CGFloat
-    let topToCardView: CGFloat
-    let cardViewToCardImageView: CGFloat
-    let cardImageViewToCardLabel: CGFloat
-    let cardLabelToBottomCardView: CGFloat
-    let bottomCardViewToDescriptionLabel: CGFloat
-    let addFriendsToFirstRewardCard: CGFloat
-    let spaceBetweenCard: CGFloat
-    let lastRewardCardToBottom: CGFloat
+    let buttonHeight: CGFloat
+    let addFriendsButtonImage: String
+    let addFriendsButtonText: String
+    let shareButtonImage: String
+    let shareButtontText: String
     
-    let cardCornerRadius: CGFloat
+    let shareContentModaltext: String
+    
+    // Margins
+    
+    let horizontalPadding: CGFloat
+    let topToGuestPassView: CGFloat
+    let topGuestPassViewToGuestPassTitleImageView: CGFloat
+    let guestPassTitleImageViewToGuestPassDescriptionLabel: CGFloat
+    let guestPassDescriptionLabelToBottomGuestPassView: CGFloat
+    let guestPassViewToDescriptionLabel: CGFloat
+    let descriptionLabelToAddFriendsButtom: CGFloat
+    let addFriendsButtonToShareReferralButton: CGFloat
+    let firstRewardCardTopOffset: CGFloat
+    let spaceBetweenRewardCards: CGFloat
+    let lastRewardCardBottomOffset: CGFloat
     
     init() {
-        addFriendsButtonImage = "person.crop.circle.badge.plus"
-        shareButtonImage = "square.and.arrow.up"
-        
-        topCardLabelText = "30-day Guest Pass"
-        descriptionLabelText = "Give a friend unlimited access to Opal Pro, including unlimited schedules, app limits, deep focus, whitelisting and more!"
-        addFriendsButtonText = "Add Friends"
-        shareButtontText = "Share Referral Link"
-        shareContentModaltext = "Share Opal with your friends !"
-        
-        topCardLabelFont = .captionSemibold
-        descriptionLabelFont = .calloutRegular
-        
         backgroundColor = .black80
-        topCardBackgroundColor = .purple
-        topCardLabelColor = .white.withAlphaComponent(0.9)
+        topBackgroundImage = "purple-gradient"
+        
+        guestPassCornerRadius = 16
+        guestPassBackgroundImage = "purple-gradient"
+        guestPassSealImage = "opal-seal"
+        guestPassTitleImage = "opal-title"
+        guestPassDescriptionText = "30-day Guest Pass"
+        guestPassDescriptionTextColor = .white.withAlphaComponent(0.9)
+        guestPassDescriptionFont = .captionSemibold
+        
+        descriptionLabelText = "Give a friend unlimited access to Opal Pro, including unlimited schedules, app limits, deep focus, whitelisting and more!"
+        descriptionLabelFont = .calloutRegular
         descriptionLabelColor = .white100
         
-        horizontalPadding = 16
-        topToCardView = 16
-        cardViewToCardImageView = 64
-        cardImageViewToCardLabel = 8
-        cardLabelToBottomCardView = 64
-        bottomCardViewToDescriptionLabel = 32
-        addFriendsToFirstRewardCard = 32
-        spaceBetweenCard = 16
-        lastRewardCardToBottom = 32
+        buttonHeight = CGFloat.ButtonHeight.small
+        addFriendsButtonImage = "person.crop.circle.badge.plus"
+        addFriendsButtonText = "Add Friends"
+        shareButtonImage = "square.and.arrow.up"
+        shareButtontText = "Share Referral Link"
         
-        cardCornerRadius = 16
+        shareContentModaltext = "Share Opal with your friends !"
+        
+        // Margins
+        
+        horizontalPadding = 16
+        topToGuestPassView = 16
+        topGuestPassViewToGuestPassTitleImageView = 64
+        guestPassTitleImageViewToGuestPassDescriptionLabel = 8
+        guestPassDescriptionLabelToBottomGuestPassView = 54
+        guestPassViewToDescriptionLabel = 32
+        descriptionLabelToAddFriendsButtom = 32
+        addFriendsButtonToShareReferralButton = 8
+        firstRewardCardTopOffset = 32
+        spaceBetweenRewardCards = 16
+        lastRewardCardBottomOffset = 32
     }
 }

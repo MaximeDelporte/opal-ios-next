@@ -13,7 +13,15 @@ import UIKit
 class SponsorshipViewController: UIViewController {
     
     private let scrollView = UIScrollView()
-    private let guestPassImageView = UIImageView()
+    private let topBackgroundImageView = UIImageView()
+    
+    // Guest Pass
+    private let guestPassView = UIView()
+    private let guestPassBackgroundImageView = UIImageView()
+    private let guestPassSealImageView = UIImageView()
+    private let guestPassTitleImageView = UIImageView()
+    private let guestPassDescriptionLabel = UILabel()
+    
     private let descriptionLabel = UILabel()
     private let referredCard = UIView()
     
@@ -40,6 +48,11 @@ class SponsorshipViewController: UIViewController {
         setUpConstraints()
         setUpBindings()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
 }
 
 // MARK: - Common Methods
@@ -50,8 +63,10 @@ extension SponsorshipViewController {
         view.backgroundColor = layout.backgroundColor
         view.addSubview(scrollView)
         
-        guestPassImageView.image = UIImage(named: "guest-pass")
-        guestPassImageView.contentMode = .scaleAspectFill
+        topBackgroundImageView.image = UIImage(named: layout.topBackgroundImage)
+        scrollView.addSubview(topBackgroundImageView)
+        
+        setUpGuestPassCard()
         
         descriptionLabel.text = layout.descriptionLabelText
         descriptionLabel.font = layout.descriptionLabelFont
@@ -59,7 +74,6 @@ extension SponsorshipViewController {
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
         
-        scrollView.addSubview(guestPassImageView)
         scrollView.addSubview(descriptionLabel)
         scrollView.addSubview(addFriendsButton)
         scrollView.addSubview(shareReferralButton)
@@ -70,27 +84,28 @@ extension SponsorshipViewController {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
         
-        guestPassImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(layout.topToCardView)
-            $0.left.equalTo(view).offset(layout.horizontalPadding)
-            $0.right.equalTo(view).offset(-layout.horizontalPadding)
+        topBackgroundImageView.snp.makeConstraints {
+            $0.left.top.equalToSuperview()
+            $0.right.equalTo(view)
         }
         
+        setUpGuestPassCardConstraints()
+        
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(guestPassImageView.snp.bottom).offset(layout.bottomCardViewToDescriptionLabel)
-            $0.left.right.equalTo(guestPassImageView)
+            $0.top.equalTo(guestPassView.snp.bottom).offset(layout.guestPassViewToDescriptionLabel)
+            $0.left.right.equalTo(guestPassView)
         }
         
         addFriendsButton.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(32)
-            $0.height.equalTo(CGFloat.ButtonHeight.small)
-            $0.left.right.equalTo(guestPassImageView)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(layout.descriptionLabelToAddFriendsButtom)
+            $0.height.equalTo(layout.buttonHeight)
+            $0.left.right.equalTo(guestPassView)
         }
         
         shareReferralButton.snp.makeConstraints {
-            $0.top.equalTo(addFriendsButton.snp.bottom).offset(8)
-            $0.height.equalTo(CGFloat.ButtonHeight.small)
-            $0.left.right.equalTo(guestPassImageView)
+            $0.top.equalTo(addFriendsButton.snp.bottom).offset(layout.addFriendsButtonToShareReferralButton)
+            $0.height.equalTo(layout.buttonHeight)
+            $0.left.right.equalTo(guestPassView)
         }
     }
     
@@ -109,6 +124,59 @@ extension SponsorshipViewController {
         }).store(in: &cancellable)
         
         viewModel.loadRewards()
+    }
+}
+
+// MARK: - Setup GuestPassView
+
+extension SponsorshipViewController {
+    
+    private func setUpGuestPassCard() {
+        guestPassView.layer.cornerRadius = layout.guestPassCornerRadius
+        guestPassView.clipsToBounds = true
+        
+        guestPassBackgroundImageView.image = UIImage(named: layout.guestPassBackgroundImage)
+        guestPassTitleImageView.image = UIImage(named: layout.guestPassTitleImage)
+        
+        guestPassSealImageView.image = UIImage(named: layout.guestPassSealImage)?.withRenderingMode(.alwaysTemplate)
+        guestPassSealImageView.tintColor = .black100.withAlphaComponent(0.25)
+        
+        guestPassDescriptionLabel.text = layout.guestPassDescriptionText
+        guestPassDescriptionLabel.textColor = layout.guestPassDescriptionTextColor
+        guestPassDescriptionLabel.font = layout.guestPassDescriptionFont
+        
+        guestPassView.addSubview(guestPassBackgroundImageView)
+        guestPassView.addSubview(guestPassSealImageView)
+        guestPassView.addSubview(guestPassTitleImageView)
+        guestPassView.addSubview(guestPassDescriptionLabel)
+        scrollView.addSubview(guestPassView)
+    }
+    
+    private func setUpGuestPassCardConstraints() {
+        guestPassView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(layout.topToGuestPassView)
+            $0.left.equalTo(view).offset(layout.horizontalPadding)
+            $0.right.equalTo(view).offset(-layout.horizontalPadding)
+        }
+        
+        guestPassBackgroundImageView.snp.makeConstraints {
+            $0.left.top.right.equalToSuperview()
+        }
+        
+        guestPassSealImageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        guestPassTitleImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(layout.topGuestPassViewToGuestPassTitleImageView)
+            $0.centerX.equalToSuperview()
+        }
+        
+        guestPassDescriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(guestPassTitleImageView.snp.bottom).offset(layout.guestPassTitleImageViewToGuestPassDescriptionLabel)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-layout.guestPassDescriptionLabelToBottomGuestPassView)
+        }
     }
 }
 
@@ -140,24 +208,24 @@ extension SponsorshipViewController {
             
             if isFirstCard {
                 rewardCard.snp.makeConstraints {
-                    $0.top.equalTo(shareReferralButton.snp.bottom).offset(layout.addFriendsToFirstRewardCard)
-                    $0.left.right.equalTo(guestPassImageView)
+                    $0.top.equalTo(shareReferralButton.snp.bottom).offset(layout.firstRewardCardTopOffset)
+                    $0.left.right.equalTo(guestPassView)
                 }
-            } 
+            }
             else {
                 let isLastCard = index == rewardCards.count - 1
                 let previousCard = rewardCards[index - 1]
                 
                 if isLastCard {
                     rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenCard)
-                        $0.left.right.equalTo(guestPassImageView)
-                        $0.bottom.equalToSuperview().offset(-layout.lastRewardCardToBottom)
+                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenRewardCards)
+                        $0.left.right.equalTo(guestPassView)
+                        $0.bottom.equalToSuperview().offset(-layout.lastRewardCardBottomOffset)
                     }
                 } else {
                     rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenCard)
-                        $0.left.right.equalTo(guestPassImageView)
+                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenRewardCards)
+                        $0.left.right.equalTo(guestPassView)
                     }
                 }
             }
