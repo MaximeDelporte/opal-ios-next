@@ -36,6 +36,7 @@ class SponsorshipViewController: UIViewController {
     )
     
     private var rewardCards = [RewardCard]()
+    private var separatorImageViews = [UIImageView]()
     
     private var cancellable = Set<AnyCancellable>()
     private let viewModel = SponsorshipViewModel()
@@ -52,6 +53,11 @@ class SponsorshipViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    @objc private func shareButtonTapped() {
+        let activityViewController = UIActivityViewController(activityItems: layout.activityItems, applicationActivities: nil)
+        self.present(activityViewController, animated: true)
     }
 }
 
@@ -110,8 +116,8 @@ extension SponsorshipViewController {
     }
     
     private func setUpBindings() {
-        addFriendsButton.addTarget(self, action: #selector(displayShareSheet), for: .touchUpInside)
-        shareReferralButton.addTarget(self, action: #selector(displayShareSheet), for: .touchUpInside)
+        addFriendsButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
+        shareReferralButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
         
         viewModel.statePublisher.sink(receiveValue: { [weak self] state in
             guard let self = self else { return }
@@ -119,7 +125,8 @@ extension SponsorshipViewController {
             case .loading:
                 break
             case .loaded(let sponsorship):
-                self.createCards(with: sponsorship.rewards)
+                let rewards = sponsorship.rewards
+                self.createRewardCards(from: rewards)
             }
         }).store(in: &cancellable)
         
@@ -180,23 +187,24 @@ extension SponsorshipViewController {
     }
 }
 
-// MARK: - Convenience Methods
+// MARK: - RewardCard
 
 extension SponsorshipViewController {
     
-    @objc private func displayShareSheet() {
-        let shareContent = layout.shareContentModaltext
-        let activityViewController = UIActivityViewController(activityItems: [shareContent as NSString], applicationActivities: nil)
-        self.present(activityViewController, animated: true)
-    }
-    
-    private func createCards(with rewards: [Reward]) {
-        for reward in rewards {
-            let layout = RewardCardLayout(
-                reward: reward
-            )
+    private func createRewardCards(from rewards: [Reward]) {
+        
+        for (index, reward) in rewards.enumerated() {
+            let layout = RewardCardLayout(reward: reward)
             let rewardCard = RewardCard(layout: layout)
             rewardCards.append(rewardCard)
+            
+            let isNotTheLastReward = index != rewards.count - 1
+            if isNotTheLastReward  {
+                let separatorImage = UIImage(systemName: "arrow.down")
+                let separatorImageView = UIImageView(image: separatorImage)
+                separatorImageView.tintColor = self.layout.separatorColor
+                separatorImageViews.append(separatorImageView)
+            }
         }
         
         setUpRewardCardsConstraints()
@@ -213,22 +221,31 @@ extension SponsorshipViewController {
                     $0.top.equalTo(shareReferralButton.snp.bottom).offset(layout.firstRewardCardTopOffset)
                     $0.left.right.equalTo(guestPassView)
                 }
-            }
-            else {
-                let isLastCard = index == rewardCards.count - 1
-                let previousCard = rewardCards[index - 1]
                 
-                if isLastCard {
-                    rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenRewardCards)
-                        $0.left.right.equalTo(guestPassView)
-                        $0.bottom.equalToSuperview().offset(-layout.lastRewardCardBottomOffset)
-                    }
-                } else {
-                    rewardCard.snp.makeConstraints {
-                        $0.top.equalTo(previousCard.snp.bottom).offset(layout.spaceBetweenRewardCards)
-                        $0.left.right.equalTo(guestPassView)
-                    }
+                rewardCard.updateLayout()
+                continue
+            } 
+            
+            let isLastCard = index == rewardCards.count - 1
+            let previousCard = rewardCards[index - 1]
+            let currentSeparatorView = separatorImageViews[index - 1]
+            scrollView.addSubview(currentSeparatorView)
+            
+            currentSeparatorView.snp.makeConstraints {
+                $0.top.equalTo(previousCard.snp.bottom).offset(layout.separatorVerticalOffset)
+                $0.centerX.equalToSuperview()
+                $0.bottom.equalTo(rewardCard.snp.top).offset(-layout.separatorVerticalOffset)
+            }
+            
+            rewardCard.snp.makeConstraints {
+                $0.left.right.equalTo(guestPassView)
+            }
+            
+            if isLastCard {
+                rewardCard.snp.removeConstraints()
+                rewardCard.snp.makeConstraints {
+                    $0.left.right.equalTo(guestPassView)
+                    $0.bottom.equalToSuperview().offset(-layout.lastRewardCardBottomOffset)
                 }
             }
             

@@ -11,6 +11,7 @@ import UIKit
 class SponsorshipViewLayout {
 
     let backgroundColor: UIColor
+    let separatorColor: UIColor
     let topBackgroundImage: String
     
     let guestPassCornerRadius: CGFloat
@@ -31,7 +32,7 @@ class SponsorshipViewLayout {
     let shareButtonImage: String
     let shareButtontText: String
     
-    let shareContentModaltext: String
+    let activityItems: [Any]
     
     // Margins
     
@@ -46,9 +47,11 @@ class SponsorshipViewLayout {
     let firstRewardCardTopOffset: CGFloat
     let spaceBetweenRewardCards: CGFloat
     let lastRewardCardBottomOffset: CGFloat
+    let separatorVerticalOffset: CGFloat
     
     init() {
         backgroundColor = .black80
+        separatorColor = .white40
         topBackgroundImage = "purple-gradient"
         
         guestPassCornerRadius = 16
@@ -69,7 +72,7 @@ class SponsorshipViewLayout {
         shareButtonImage = "square.and.arrow.up"
         shareButtontText = "Share Referral Link"
         
-        shareContentModaltext = "Share Opal with your friends !"
+        activityItems = ["Share Opal with your friends !" as NSString]
         
         // Margins
         
@@ -84,5 +87,6 @@ class SponsorshipViewLayout {
         firstRewardCardTopOffset = 32
         spaceBetweenRewardCards = 16
         lastRewardCardBottomOffset = 32
+        separatorVerticalOffset = 4
     }
 }
