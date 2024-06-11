@@ -50,9 +50,15 @@ extension RewardCard {
         rewardView.backgroundColor = layout.rewardViewBackgroundColor
         rewardView.layer.cornerRadius = layout.cardCornerRadius
         rewardView.addSubview(rewardImageView)
-        rewardImageView.image = UIImage(named: layout.imageUrl)
-        rewardImageView.contentMode = .scaleAspectFit
         
+        
+        rewardImageView.image = layout.rewardImage
+        rewardImageView.contentMode = .scaleAspectFit
+        if let tintColor = layout.rewardImageViewTintColor {
+            rewardImageView.image = layout.rewardImage?.withRenderingMode(.alwaysTemplate)
+            rewardImageView.tintColor = tintColor
+        }
+       
         titleLabel.text = layout.titleText
         titleLabel.font = layout.titleFont
         titleLabel.textColor = layout.titleColor
@@ -75,7 +81,8 @@ extension RewardCard {
     
     private func setUpConstraints() {
         rewardImageView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.size.equalToSuperview().multipliedBy(layout.rewardImageViewSize)
+            $0.center.equalToSuperview()
         }
         
         requirementLabel.snp.makeConstraints {

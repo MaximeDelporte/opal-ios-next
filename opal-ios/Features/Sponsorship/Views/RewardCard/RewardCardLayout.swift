@@ -13,7 +13,6 @@ class RewardCardLayout {
     let requirementText: String
     let titleText: String
     let descriptionText: String
-    let imageUrl: String
     let claimButtonText: String
     
     let claimedButtonBackgroundColor: UIColor
@@ -34,6 +33,9 @@ class RewardCardLayout {
     let rewardViewBackgroundColor: UIColor
     
     let rewardViewSize: CGFloat
+    let rewardImage: UIImage?
+    let rewardImageViewSize: CGFloat
+    let rewardImageViewTintColor: UIColor?
     let horizontalPadding: CGFloat
     let spaceBetweenImageAndContent: CGFloat
     let spaceBetweenTopAndContent: CGFloat
@@ -59,7 +61,6 @@ class RewardCardLayout {
         requirementText = reward.requiredFriends > 1 ? "\(reward.requiredFriends) FRIENDS" : "\(reward.requiredFriends) FRIEND"
         titleText = reward.title
         descriptionText = reward.description
-        imageUrl = reward.imageUrl
         claimButtonText = "Claim"
         
         claimedButtonBackgroundColor = .white10
@@ -80,6 +81,13 @@ class RewardCardLayout {
         rewardViewBackgroundColor = .white10
         
         rewardViewSize = 100
+        
+        let assetImage = UIImage(named: reward.imageUrl)
+        let systemImage = UIImage(systemName: reward.imageUrl)
+        rewardImage = assetImage ?? systemImage
+        rewardImageViewSize = assetImage == nil ? 0.33 : 1.0
+        rewardImageViewTintColor = assetImage == nil ? .white100 : nil
+        
         horizontalPadding = 16
         spaceBetweenImageAndContent = 32
         spaceBetweenTopAndContent = 16
