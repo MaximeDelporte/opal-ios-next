@@ -115,7 +115,7 @@ extension RewardCard {
             let claimedButton = UIButton.custom(
                 title: layout.claimedButtonText,
                 imageName: layout.claimedButtonImage,
-                imagePadding: 4,
+                imagePadding: layout.claimButtonImagePadding,
                 backgroundColor: layout.claimedButtonBackgroundColor,
                 foregroundColor: layout.claimedButtonForegroundColor
             )

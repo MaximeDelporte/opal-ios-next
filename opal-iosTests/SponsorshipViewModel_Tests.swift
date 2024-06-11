@@ -40,8 +40,57 @@ final class SponsorshipViewModel_Tests: XCTestCase {
     func test_whenSponsorshipRequestIsSuccessful_thenWeShouldHaveProperties() {
         // act
         viewModel.loadRewards()
+        
         // assert
         XCTAssertEqual(spy.states.count, 2)
+        
+        guard case let .loaded(sponsorship) = spy.states[1] else {
+            XCTFail("The second state should be loaded.")
+            return
+        }
+        
+        XCTAssertEqual(sponsorship.rewards.count, 6)
+    }
+    
+    func test_getCompletionForReward_shouldReturnsCorrectValues() {
+        // act
+        viewModel.loadRewards()
+        
+        // assert
+        let completionForRewardArray = getCompletionForRewardArray()
+        
+        for (completionShouldBe, reward) in completionForRewardArray {
+            let completion = viewModel.getCompletion(for: reward)
+            XCTAssertEqual(completionShouldBe, completion, "Completion should be: \(completionShouldBe) while it's \(completion) instead.")
+        }
+    }
+}
+
+// MARK: - Convenience Methods
+
+extension SponsorshipViewModel_Tests {
+    
+    private func getCompletionForRewardArray() -> [(CGFloat, Reward)] {
+        guard case let .loaded(sponsorship) = spy.states[1] else {
+            XCTFail("The second state should be loaded.")
+            return []
+        }
+        
+        let claimedReward = sponsorship.rewards[0]
+        let claimReward = sponsorship.rewards[1]
+        let ongoingReward = sponsorship.rewards[2]
+        let toDoReward1 = sponsorship.rewards[3]
+        let toDoReward2 = sponsorship.rewards[4]
+        let toDoReward3 = sponsorship.rewards[5]
+        
+        return [
+            (1.0, claimedReward),
+            (1.0, claimReward),
+            (0.8, ongoingReward),
+            (0.4, toDoReward1),
+            (0.2, toDoReward2),
+            (0.04, toDoReward3)
+        ]
     }
 }
 

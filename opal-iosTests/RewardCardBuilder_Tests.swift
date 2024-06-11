@@ -41,20 +41,19 @@ class RewardCardLayout_Tests: XCTestCase {
         XCTAssertEqual(layout.descriptionFont, .footnoteSemibold)
         XCTAssertEqual(layout.claimButtonFont, .footnoteRegular)
         
-        XCTAssertEqual(layout.cardBackgroundColor, UIColor.black80)
-        XCTAssertEqual(layout.cardBorderColor, UIColor.white.withAlphaComponent(0.1).cgColor)
-        XCTAssertEqual(layout.descriptionColor, .white.withAlphaComponent(0.4))
-        XCTAssertEqual(layout.progressViewBackgroundColor, .white.withAlphaComponent(0.1))
-        XCTAssertEqual(layout.rewardViewBackgroundColor, .white.withAlphaComponent(0.1))
+        XCTAssertEqual(layout.cardBackgroundColor, UIColor.white5)
+        XCTAssertEqual(layout.cardBorderColor, UIColor.white10.cgColor)
+        XCTAssertEqual(layout.descriptionColor, .white40)
+        XCTAssertEqual(layout.rewardViewBackgroundColor, .white10)
         
         XCTAssertEqual(layout.cardCornerRadius, 18)
-        XCTAssertTrue(layout.ongoingMode)
+        XCTAssertEqual(layout.rewardStatus, .ongoing)
     }
     
     func test_backgroundColorShouldBeDifferent_whenOngoingStatusIsSet() {
         let statusAndColors: [(Reward.Status, UIColor)] = [
             (.todo, .black80),
-            (.ongoing, .white10),
+            (.ongoing, .white5),
             (.claim, .black80),
             (.claimed, .black80)
         ]

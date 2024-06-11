@@ -19,6 +19,7 @@ class RewardCardLayout {
     let claimedButtonBackgroundColor: UIColor
     let claimedButtonForegroundColor: UIColor
     let claimedButtonImage: String
+    let claimButtonImagePadding: CGFloat
     let claimedButtonText: String
     
     let requirementFont: UIFont
@@ -62,6 +63,7 @@ class RewardCardLayout {
         claimedButtonBackgroundColor = .white10
         claimedButtonForegroundColor = .white40
         claimedButtonImage = "checkmark"
+        claimButtonImagePadding = 4
         claimedButtonText = "Claimed"
         
         requirementFont = .captionSemibold
