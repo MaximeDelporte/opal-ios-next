@@ -16,6 +16,9 @@
 		FC760D962C110C3800649DCF /* RewardCardBuilder_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D952C110C3800649DCF /* RewardCardBuilder_Tests.swift */; };
 		FC760D992C110D7A00649DCF /* Reward+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D982C110D7A00649DCF /* Reward+Extensions.swift */; };
 		FC760D9B2C11278600649DCF /* SponsorshipViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC760D9A2C11278600649DCF /* SponsorshipViewLayout.swift */; };
+		FCC61CD82C17D0B000557254 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC61CD72C17D0B000557254 /* ProgressView.swift */; };
+		FCC61CDA2C17D19A00557254 /* ProgressViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC61CD92C17D19A00557254 /* ProgressViewLayout.swift */; };
+		FCC61CDD2C17D31800557254 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC61CDC2C17D31800557254 /* Gradient.swift */; };
 		FCF937B92C0F59AC00E1AF04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */; };
 		FCF937BD2C0F59AC00E1AF04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */; };
 		FCF937C22C0F59AD00E1AF04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF937C12C0F59AD00E1AF04 /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 		FC760D952C110C3800649DCF /* RewardCardBuilder_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCardBuilder_Tests.swift; sourceTree = "<group>"; };
 		FC760D982C110D7A00649DCF /* Reward+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reward+Extensions.swift"; sourceTree = "<group>"; };
 		FC760D9A2C11278600649DCF /* SponsorshipViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorshipViewLayout.swift; sourceTree = "<group>"; };
+		FCC61CD72C17D0B000557254 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		FCC61CD92C17D19A00557254 /* ProgressViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewLayout.swift; sourceTree = "<group>"; };
+		FCC61CDC2C17D31800557254 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		FCF937B52C0F59AC00E1AF04 /* opal-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "opal-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF937B82C0F59AC00E1AF04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF937BC2C0F59AC00E1AF04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		FC70EFC62C162ADC00B9CB6C /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				FCC61CDB2C17D30F00557254 /* Enums */,
 				FC70EFC72C162AE400B9CB6C /* Views */,
 				FCF938042C0F6A6600E1AF04 /* Extensions */,
 			);
@@ -130,6 +137,32 @@
 				FC760D982C110D7A00649DCF /* Reward+Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FCC61CD52C17D09300557254 /* RewardCard */ = {
+			isa = PBXGroup;
+			children = (
+				FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */,
+				FC760D932C110B6200649DCF /* RewardCardLayout.swift */,
+			);
+			path = RewardCard;
+			sourceTree = "<group>";
+		};
+		FCC61CD62C17D09D00557254 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				FCC61CD72C17D0B000557254 /* ProgressView.swift */,
+				FCC61CD92C17D19A00557254 /* ProgressViewLayout.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		FCC61CDB2C17D30F00557254 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				FCC61CDC2C17D31800557254 /* Gradient.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		FCF937AC2C0F59AC00E1AF04 = {
@@ -238,8 +271,8 @@
 		FCF9380A2C0F7E5500E1AF04 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FCF9380B2C0F7E5F00E1AF04 /* RewardCard.swift */,
-				FC760D932C110B6200649DCF /* RewardCardLayout.swift */,
+				FCC61CD52C17D09300557254 /* RewardCard */,
+				FCC61CD62C17D09D00557254 /* ProgressView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,8 +428,11 @@
 				FCF938032C0F68D100E1AF04 /* SponsorshipViewModel.swift in Sources */,
 				FC760D902C11015400649DCF /* UILabel+Extensions.swift in Sources */,
 				FCF938092C0F6BBC00E1AF04 /* Sponsorship.swift in Sources */,
+				FCC61CD82C17D0B000557254 /* ProgressView.swift in Sources */,
 				FC52F3532C130981003D6719 /* UIButton+Extensions.swift in Sources */,
 				FCF937F52C0F60BD00E1AF04 /* SponsorshipViewController.swift in Sources */,
+				FCC61CDA2C17D19A00557254 /* ProgressViewLayout.swift in Sources */,
+				FCC61CDD2C17D31800557254 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

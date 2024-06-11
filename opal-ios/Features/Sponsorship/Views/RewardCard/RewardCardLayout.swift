@@ -30,7 +30,6 @@ class RewardCardLayout {
     let cardBorderColor: CGColor
     let titleColor: UIColor
     let descriptionColor: UIColor
-    let progressViewBackgroundColor: UIColor
     let rewardViewBackgroundColor: UIColor
     
     let rewardViewSize: CGFloat
@@ -70,11 +69,10 @@ class RewardCardLayout {
         descriptionFont = .footnoteSemibold
         claimButtonFont = .footnoteRegular
         
-        cardBackgroundColor = reward.status == .ongoing ? .white10 : .black80
+        cardBackgroundColor = reward.status == .ongoing ? .white5 : .black80
         cardBorderColor = UIColor.white10.cgColor
         titleColor = .white100
         descriptionColor = .white40
-        progressViewBackgroundColor = .white10
         rewardViewBackgroundColor = .white10
         
         rewardViewSize = 100

@@ -8,28 +8,17 @@
 import Foundation
 import UIKit
 
-class GradientLabel: UILabel {    
+class GradientLabel: UILabel {
     
-    enum Gradient {
-        case purple
-        
-        var colors: [UIColor] {
-            switch self {
-            case .purple:
-                return [.purple100, .blue100, .blue100, .blue100]
-            }
-        }
-    }
+    private let gradient: Gradient
     
-    private let gradient: GradientLabel.Gradient
-    
-    init(gradient: GradientLabel.Gradient) {
+    init(gradient: Gradient) {
         self.gradient = gradient
         super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("GradientLabel - init(coder:) has not been implemented")
     }
     
     override func drawText(in rect: CGRect) {
@@ -39,7 +28,7 @@ class GradientLabel: UILabel {
         }
         
         // Create a gradient
-        let colors = gradient.colors.map { $0.cgColor } as CFArray
+        let colors = gradient.colors.map { $0 } as CFArray
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         var gradient = CGGradient(
             colorsSpace: colorSpace,

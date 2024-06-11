@@ -104,9 +104,8 @@ extension RewardCard {
     private func setUpBottomView() {
         switch layout.rewardStatus {
         case .todo, .ongoing:
-            let progressView = UIView()
-            progressView.backgroundColor = layout.progressViewBackgroundColor
-            progressView.layer.cornerRadius = progressView.frame.height / 2
+            let layout = ProgressViewLayout(completionPercentage: 1.0)
+            let progressView = ProgressView(layout: layout)
             bottomView = progressView
         case .claim:
             let claimButton = UIButton.tertiary(title: layout.claimButtonText)
