@@ -35,6 +35,18 @@ extension UIButton {
             .foregroundColor(.black100)
     }
     
+    static func custom(
+        title: String,
+        imageName: String? = nil,
+        imagePadding: CGFloat = 8,
+        backgroundColor: UIColor,
+        foregroundColor: UIColor
+    ) -> UIButton {
+        return getDefaultButton(with: title, and: imageName, imagePadding: imagePadding)
+            .backgroundColor(backgroundColor)
+            .foregroundColor(foregroundColor)
+    }
+    
     func update(font: UIFont) {
         guard let text = self.titleLabel?.text else {
             return
@@ -49,9 +61,13 @@ extension UIButton {
 
 extension UIButton {
     
-    private static func getDefaultButton(with title: String, and imageName: String? = nil) -> UIButton {
+    private static func getDefaultButton(
+        with title: String,
+        and imageName: String? = nil,
+        imagePadding: CGFloat = 8
+    ) -> UIButton {
         var configuration = UIButton.Configuration.plain()
-        let attributes = AttributeContainer([.font: UIFont.bodyMedium])
+        let attributes = AttributeContainer([.font: UIFont.bodyRegular])
         configuration.attributedTitle = AttributedString(title, attributes: attributes)
         configuration.cornerStyle = .capsule
         
@@ -62,15 +78,11 @@ extension UIButton {
                 scale: .default
             )
             configuration.image = UIImage(systemName: imageName, withConfiguration: config)
-            configuration.imagePadding = 8
+            configuration.imagePadding = imagePadding
             configuration.imagePlacement = .leading
         }
         
-        let button = UIButton(configuration: configuration)
-        button.titleLabel?.text = title
-        button.titleLabel?.font = .bodyMedium
-        
-        return button
+        return UIButton(configuration: configuration)
     }
     
     private func backgroundColor(_ color: UIColor) -> UIButton {

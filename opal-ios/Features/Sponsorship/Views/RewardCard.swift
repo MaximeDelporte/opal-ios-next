@@ -17,8 +17,7 @@ class RewardCard: UIView {
     private let requirementLabel = GradientLabel(gradient: .purple)
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
-    private lazy var claimButton = UIButton.tertiary(title: layout.claimButtonText)
-    private let progressView = UIView()
+    private var bottomView = UIView()
     
     private let layout: RewardCardLayout
     
@@ -64,21 +63,14 @@ extension RewardCard {
         descriptionLabel.textColor = layout.descriptionColor
         descriptionLabel.numberOfLines =  0
         
-        if layout.ongoingMode {
-            progressView.backgroundColor = layout.progressViewBackgroundColor
-            progressView.layer.cornerRadius = progressView.frame.height / 2
-            
-            contentView.addSubview(progressView)
-        } else {
-            claimButton.update(font: layout.claimButtonFont)
-            contentView.addSubview(claimButton)
-        }
+        setUpBottomView()
         
         addSubview(rewardView)
         addSubview(contentView)
         contentView.addSubview(requirementLabel)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
+        contentView.addSubview(bottomView)
     }
     
     private func setUpConstraints() {
@@ -101,15 +93,51 @@ extension RewardCard {
             $0.left.right.equalTo(requirementLabel)
         }
         
-        if layout.ongoingMode {
-            progressView.snp.makeConstraints {
+        setUpBottomViewConstraints()
+    }
+}
+
+// MARK: - Setup BottomView
+
+extension RewardCard {
+    
+    private func setUpBottomView() {
+        switch layout.rewardStatus {
+        case .todo, .ongoing:
+            let progressView = UIView()
+            progressView.backgroundColor = layout.progressViewBackgroundColor
+            progressView.layer.cornerRadius = progressView.frame.height / 2
+            bottomView = progressView
+        case .claim:
+            let claimButton = UIButton.tertiary(title: layout.claimButtonText)
+            claimButton.update(font: layout.claimButtonFont)
+            bottomView = claimButton
+        case .claimed:
+            let claimedButton = UIButton.custom(
+                title: layout.claimedButtonText,
+                imageName: layout.claimedButtonImage,
+                imagePadding: 4,
+                backgroundColor: layout.claimedButtonBackgroundColor,
+                foregroundColor: layout.claimedButtonForegroundColor
+            )
+            claimedButton.update(font: layout.claimButtonFont)
+            bottomView = claimedButton
+        }
+        
+        contentView.addSubview(bottomView)
+    }
+    
+    private func setUpBottomViewConstraints() {
+        switch layout.rewardStatus {
+        case .todo, .ongoing:
+            bottomView.snp.makeConstraints {
                 $0.left.right.equalTo(requirementLabel)
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(layout.spaceBetweenDescriptionAndProgressView)
                 $0.height.equalTo(layout.progressViewHeight)
                 $0.bottom.equalToSuperview()
             }
-        } else {
-            claimButton.snp.makeConstraints {
+        case .claim, .claimed:
+            bottomView.snp.makeConstraints {
                 $0.top.equalTo(descriptionLabel.snp.bottom).offset(layout.spaceBetweenDescriptionAndClaimButton)
                 $0.left.equalTo(requirementLabel)
                 $0.height.equalTo(layout.buttonHeight)
@@ -128,7 +156,7 @@ extension RewardCard {
         rewardView.snp.removeConstraints()
         contentView.snp.removeConstraints()
         
-        if layout.isImageViewBiggerThanContent {
+        if layout.isRewardViewBiggerThanContent {
             rewardView.snp.makeConstraints {
                 $0.top.equalToSuperview().offset(layout.spaceBetweenTopAndContent)
                 $0.left.equalToSuperview().offset(layout.horizontalPadding)

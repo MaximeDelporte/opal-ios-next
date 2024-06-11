@@ -16,6 +16,11 @@ class RewardCardLayout {
     let imageUrl: String
     let claimButtonText: String
     
+    let claimedButtonBackgroundColor: UIColor
+    let claimedButtonForegroundColor: UIColor
+    let claimedButtonImage: String
+    let claimedButtonText: String
+    
     let requirementFont: UIFont
     let titleFont: UIFont
     let descriptionFont: UIFont
@@ -42,7 +47,7 @@ class RewardCardLayout {
     let spaceBetweenContentAndBottom: CGFloat
     
     let cardCornerRadius: CGFloat
-    let ongoingMode: Bool
+    let rewardStatus: Reward.Status
     
     private let reward: Reward
     
@@ -54,6 +59,11 @@ class RewardCardLayout {
         descriptionText = reward.description
         imageUrl = reward.imageUrl
         claimButtonText = "Claim"
+        
+        claimedButtonBackgroundColor = .white10
+        claimedButtonForegroundColor = .white40
+        claimedButtonImage = "checkmark"
+        claimedButtonText = "Claimed"
         
         requirementFont = .captionSemibold
         titleFont = .bodyMedium
@@ -81,10 +91,10 @@ class RewardCardLayout {
         spaceBetweenContentAndBottom = 16
         
         cardCornerRadius = 18
-        ongoingMode = reward.status == Reward.Status.ongoing
+        rewardStatus = reward.status
     }
     
-    var isImageViewBiggerThanContent: Bool {
+    var isRewardViewBiggerThanContent: Bool {
         let horizontalPaddings = horizontalPadding * 4
         let availableWidth = UIScreen.main.bounds.width - horizontalPaddings - rewardViewSize - spaceBetweenImageAndContent
         
@@ -103,7 +113,7 @@ class RewardCardLayout {
         height += spaceBetweenTitleAndDescription
         height += descriptionLabel.heightForWidth(availableWidth)
         
-        if ongoingMode {
+        if reward.isLocked {
             height += spaceBetweenDescriptionAndProgressView
             height += progressViewHeight
         } else {

@@ -31,4 +31,8 @@ struct Reward: Decodable {
         case excludePremiums = "exclude_premiums"
         case status
     }
+    
+    var isLocked: Bool {
+        status == .todo || status == .ongoing
+    }
 }
