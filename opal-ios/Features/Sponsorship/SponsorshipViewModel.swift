@@ -17,6 +17,8 @@ class SponsorshipViewModel {
     
     private var cancellables: Set<AnyCancellable> = []
     private let stateSubject = CurrentValueSubject<SponsorshipViewModel.State, Never>(.loading)
+    
+    private var currentSponsorship: Sponsorship?
 
     // MARK: - Public Interface
     
@@ -26,6 +28,14 @@ class SponsorshipViewModel {
     
     func loadRewards() {
         let sponsorship = Bundle.main.decode(Sponsorship.self, from: "sponsorship.json")
+        currentSponsorship = sponsorship
         stateSubject.send(.loaded(sponsorship: sponsorship))
+    }
+    
+    func getCompletion(for reward: Reward) -> CGFloat {
+        guard let sponsorship = currentSponsorship else { return 0.0 }
+        let result = CGFloat(sponsorship.referredFriends * 100) / CGFloat(reward.requiredFriends) / 100
+        let roundedResult = result >= 1.0 ? 1.0 : result
+        return roundedResult
     }
 }
