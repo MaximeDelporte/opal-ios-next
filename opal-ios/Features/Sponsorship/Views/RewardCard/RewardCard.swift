@@ -104,7 +104,7 @@ extension RewardCard {
     private func setUpBottomView() {
         switch layout.rewardStatus {
         case .todo, .ongoing:
-            let layout = ProgressViewLayout(completionPercentage: 1.0)
+            let layout = ProgressViewLayout(completionPercentage: layout.completion)
             let progressView = ProgressView(layout: layout)
             bottomView = progressView
         case .claim:
@@ -199,7 +199,7 @@ extension RewardCard {
         status: .ongoing
     )
     
-    let layout = RewardCardLayout(reward: reward)
+    let layout = RewardCardLayout(reward: reward, completion: 0.8)
     return RewardCard(layout: layout)
 }
 

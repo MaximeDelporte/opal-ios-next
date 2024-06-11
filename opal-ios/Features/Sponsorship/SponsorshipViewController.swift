@@ -194,20 +194,25 @@ extension SponsorshipViewController {
     private func createRewardCards(from rewards: [Reward]) {
         
         for (index, reward) in rewards.enumerated() {
-            let layout = RewardCardLayout(reward: reward)
+            let completion = viewModel.getCompletion(for: reward)
+            let layout = RewardCardLayout(reward: reward, completion: completion)
             let rewardCard = RewardCard(layout: layout)
             rewardCards.append(rewardCard)
             
             let isNotTheLastReward = index != rewards.count - 1
             if isNotTheLastReward  {
-                let separatorImage = UIImage(systemName: "arrow.down")
-                let separatorImageView = UIImageView(image: separatorImage)
-                separatorImageView.tintColor = self.layout.separatorColor
-                separatorImageViews.append(separatorImageView)
+                addSeparatorImageView()
             }
         }
         
         setUpRewardCardsConstraints()
+    }
+    
+    private func addSeparatorImageView() {
+        let separatorImage = UIImage(systemName: "arrow.down")
+        let separatorImageView = UIImageView(image: separatorImage)
+        separatorImageView.tintColor = layout.separatorColor
+        separatorImageViews.append(separatorImageView)
     }
     
     private func setUpRewardCardsConstraints() {

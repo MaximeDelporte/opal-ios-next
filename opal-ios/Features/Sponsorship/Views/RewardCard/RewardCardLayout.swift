@@ -48,11 +48,13 @@ class RewardCardLayout {
     
     let cardCornerRadius: CGFloat
     let rewardStatus: Reward.Status
+    let completion: CGFloat
     
     private let reward: Reward
     
-    init(reward: Reward) {
+    init(reward: Reward, completion: CGFloat) {
         self.reward = reward
+        self.completion = completion
         
         requirementText = reward.requiredFriends > 1 ? "\(reward.requiredFriends) FRIENDS" : "\(reward.requiredFriends) FRIEND"
         titleText = reward.title
